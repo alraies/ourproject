@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    <link href="~/Content/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link type="text/css" href="~/Content/Style.css" rel="stylesheet" />
+</head>
+
+<body>
+    <!--Navbar-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a href="~/" class="navbar-brand">
+                    <strong class="logo">نظام تقييم الأداء الالكتروني</strong>
+                </a>
+                
+                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+
+            </div>
+            
+            <div id="navbar" class="navbar-collapse collapse">
+
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="~/Home">
+                            <i class="glyphicon glyphicon-home"></i>
+                            الرئيسية
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="glyphicon glyphicon-home"></i>
+                            نتيجة التقييم
+                        </a>
+                    </li>
+
+
+                </ul>
+                
+               
+
+            <ul class="nav  navbar-nav navbar-right">
+                <li>
+                    <a href="#">
+                        <i class="glyphicon glyphicon-home"></i>
+                        تعليمات
+                    </a>
+                </li>
+                <li>
+                    <!--Partial Login-->
+                    @Html.Partial("_Login")
+                </li>
+
+
+            </ul>
+
+
+
+
+
+                <a href="#" class="navbar-brand">
+                    <img src="~/Images/logo-ar703.png" style="width:200px; height:100px; margin-top:-10px; " />
+                </a>
+            </div>
+        </div>
+    </nav>
+    <!--End Navbar-->
+    <div class="container">
+        <div class="row">
+            @RenderBody()
+        </div>
+
+
+       
+    </div>
+    <!--Footer-->
+    <footer class="navbar navbar-fixed-bottom myfooter">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h2>
+                        جامعة بغداد/الجادرية
+                    </h2>
+                    <p></p>
+                </div>
+                <div class="col-md-4">
+                    <h2>
+                        اقسام الموقع
+                    </h2>
+                    <p></p>
+                </div>
+                <div class="col-md-4">
+                    <h2>
+                        دليل التقييم
+                    </h2>
+                    <p></p>
+                </div>
+            </div>
+            <div class="subfooter">
+                <p>
+                    جميع الحقوق محفوظة لموقع تقييم الاداء الالكتروني - 2020
+                </p>
+            </div>
+        </div>
+
+    </footer>
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

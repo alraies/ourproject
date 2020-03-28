@@ -1,0 +1,56 @@
+﻿@font-face{
+    font-family: myfont;
+    src:url('font/GE_SS_Two_Bold.otf')
+}
+@font-face {
+    font-family: myfont2;
+    src: url('font/DroidKufi-Regular.ttf')
+}
+
+.navbar-default {
+    background-color: #102e5e;
+    border-color: #e7e7e7;
+
+}
+    .navbar-default .navbar-nav > li > a {
+        color: #facd35;
+        font-family:myfont;
+    }
+        .navbar-default .navbar-nav > li > a:hover {
+            color: #ffeaa5;
+            font-family: myfont;
+        }
+    .navbar-default .navbar-toggle .icon-bar {
+        background-color: #facd35;
+    }
+.myfooter {
+    background-color: #102e5e;
+    padding: 10px;
+    font-family: myfont;
+    color: #facd35;
+}
+.subfooter {
+    background-color: #102e5e;
+    padding: 10px;
+    font-family: myfont;
+    text-align: center;
+    color: #facd35;
+}
+
+.logo {
+    color: #facd35;
+    font-family: myfont;
+    
+}
+.title {
+    font-family: myfont2;
+    color: #102e5e;
+}
+.desc {
+    font-family: myfont2;
+    color: #102e5e;
+}
+
+body {
+    padding-top:100px;
+}

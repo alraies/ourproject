@@ -1,0 +1,28 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    //LogOff button
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "LogOff" }))
+    {
+        //Secure from Hackers
+        @Html.AntiForgeryToken()
+        <ul class="nav  navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("مرحباً ! " + User.Identity.GetUserName(), "Index", "Manage")
+            </li>
+            <li>
+                <a href="javascript:document.getElementById('LogOff').submit()">تسجيل الخروج</a>
+            </li>
+        </ul>
+    }
+}
+else { 
+<a href="~/Account/Login">
+    <i class="glyphicon glyphicon-user"></i>
+    دخول
+</a>
+}
+
+
+
+
