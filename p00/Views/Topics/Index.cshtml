@@ -1,0 +1,64 @@
+﻿@model IEnumerable<p00.Models.Topics>
+
+@{
+    ViewBag.Title = "الفقرات";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>الفقرات</h2>
+
+<p>
+    @Html.ActionLink("اضافة فقرة", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TopicName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Points)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReqDoc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PointForDoc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Approvingly)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TopicName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Points)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReqDoc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PointForDoc)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Approvingly)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Pid }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Pid }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Pid })
+        </td>
+    </tr>
+}
+
+</table>

@@ -99,4 +99,7 @@ C:\Users\alrai\source\repos\p00\p00\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\alrai\source\repos\p00\p00\bin\Microsoft.Owin.Security.OAuth.xml
 C:\Users\alrai\source\repos\p00\p00\bin\Newtonsoft.Json.xml
 C:\Users\alrai\source\repos\p00\p00\bin\System.Web.Optimization.xml
-C:\Users\alrai\source\repos\p00\p00\obj\Debug\p00.csprojAssemblyReference.cache
+C:\Users\alrai\source\repos\p00\p00\obj\Debug\p00.Migrations.InitialCreate.resources
+C:\Users\alrai\source\repos\p00\p00\obj\Debug\p00.csproj.GenerateResource.cache
+C:\Users\alrai\source\repos\p00\p00\obj\Debug\p00.Migrations.AddCoulmnToUser.resources
+C:\Users\alrai\source\repos\p00\p00\obj\Debug\p00.Migrations.AddTopicTable.resources

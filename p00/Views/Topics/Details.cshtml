@@ -1,0 +1,67 @@
+﻿@model p00.Models.Topics
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Topics</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Points)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Points)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReqDoc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReqDoc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PointForDoc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PointForDoc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Approvingly)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Approvingly)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Pid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

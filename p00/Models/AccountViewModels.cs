@@ -65,6 +65,13 @@ namespace WebApplication2.Models
     public class RegisterViewModel
     {
         [Required]
+       
+        [Display(Name = "الأسم")]
+        public string Username { get; set; }
+        [Required]
+        [Display(Name = "نوع الحساب")]
+        public string AccountType { get; set; }
+        [Required]
         [EmailAddress]
         [Display(Name = "الأيميل")]
         public string Email { get; set; }

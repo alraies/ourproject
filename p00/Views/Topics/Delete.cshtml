@@ -1,0 +1,73 @@
+﻿@model p00.Models.Topics
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Topics</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Points)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Points)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReqDoc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReqDoc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PointForDoc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PointForDoc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Approvingly)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Approvingly)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
