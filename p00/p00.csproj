@@ -168,27 +168,21 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SectionsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\TopicsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202003281246547_InitialCreate.cs" />
-    <Compile Include="Migrations\202003281246547_InitialCreate.Designer.cs">
-      <DependentUpon>202003281246547_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202003291414419_AddCoulmnToUser.cs" />
-    <Compile Include="Migrations\202003291414419_AddCoulmnToUser.Designer.cs">
-      <DependentUpon>202003291414419_AddCoulmnToUser.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004160018426_AddTopicTable.cs" />
-    <Compile Include="Migrations\202004160018426_AddTopicTable.Designer.cs">
-      <DependentUpon>202004160018426_AddTopicTable.cs</DependentUpon>
+    <Compile Include="Migrations\202004160850228_AddSectionsAndTobicsTables.cs" />
+    <Compile Include="Migrations\202004160850228_AddSectionsAndTobicsTables.Designer.cs">
+      <DependentUpon>202004160850228_AddSectionsAndTobicsTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Sections.cs" />
     <Compile Include="Models\Topics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -281,6 +275,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Login.cshtml" />
+    <Content Include="Views\Sections\Create.cshtml" />
+    <Content Include="Views\Sections\Delete.cshtml" />
+    <Content Include="Views\Sections\Details.cshtml" />
+    <Content Include="Views\Sections\Edit.cshtml" />
+    <Content Include="Views\Sections\Index.cshtml" />
     <Content Include="Views\Topics\Create.cshtml" />
     <Content Include="Views\Topics\Delete.cshtml" />
     <Content Include="Views\Topics\Details.cshtml" />
@@ -297,14 +296,8 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202003281246547_InitialCreate.resx">
-      <DependentUpon>202003281246547_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202003291414419_AddCoulmnToUser.resx">
-      <DependentUpon>202003291414419_AddCoulmnToUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004160018426_AddTopicTable.resx">
-      <DependentUpon>202004160018426_AddTopicTable.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004160850228_AddSectionsAndTobicsTables.resx">
+      <DependentUpon>202004160850228_AddSectionsAndTobicsTables.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

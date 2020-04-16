@@ -31,6 +31,8 @@ namespace WebApplication2.Models
             return new ApplicationDbContext();
         }
 
+        public System.Data.Entity.DbSet<p00.Models.Sections> Sections { get; set; }
+
         public System.Data.Entity.DbSet<p00.Models.Topics> Topics { get; set; }
     }
 }

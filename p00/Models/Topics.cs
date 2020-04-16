@@ -9,24 +9,24 @@ namespace p00.Models
     public class Topics
     {
         [Key]
-        public int Pid { get; set; }
+        public int Id { get; set; }
         [Required]
-        [Display(Name="عنوان الفقرة")]
+        [Display(Name ="أسم الفقرة")]
         public string TopicName { get; set; }
         [Required]
-        [Display(Name = "الدرجة القصوى")]
-        public int Points { get; set; }
-        [Required]
-        [Display(Name = "وصف الفقرة والملاحظات")]
+        [Display(Name = "وصف الفقرة")]
         public string Description { get; set; }
         [Required]
-        [Display(Name = "تتطلب وثيقة ؟")]
+        [Display(Name = "وزن الفقرة")]
+        public int TotalPoints { get; set; }
+        [Required]
+        [Display(Name = "تتطلب وثائق؟!")]
         public Boolean ReqDoc { get; set; }
         [Required]
-        [Display(Name = "وزن درجة الوثيقة")]
-        public int PointForDoc { get; set; }
-        [Required]
-        [Display(Name = "المسؤول عن الموافقة والتقييم")]
-        public string Approvingly { get; set; }
+        [Display(Name = "وزن الوثيقة")]
+        public int DocPoints { get; set; }
+        public int SectionsId { get; set; }
+        public Sections Sections { get; set; }
+
     }
 }

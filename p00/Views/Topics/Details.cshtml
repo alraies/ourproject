@@ -12,19 +12,19 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.Sections.SectionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sections.SectionName)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.TopicName)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.TopicName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Points)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Points)
         </dd>
 
         <dt>
@@ -36,6 +36,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.TotalPoints)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalPoints)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.ReqDoc)
         </dt>
 
@@ -44,24 +52,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PointForDoc)
+            @Html.DisplayNameFor(model => model.DocPoints)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PointForDoc)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Approvingly)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Approvingly)
+            @Html.DisplayFor(model => model.DocPoints)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Pid }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
