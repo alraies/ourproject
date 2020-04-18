@@ -1,0 +1,59 @@
+﻿@model p00.Models.CommitHees
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>CommitHees</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.comitname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comitname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comitDecipt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comitDecipt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comitpriod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comitpriod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.comittype)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.comittype)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.isActive)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.isActive)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

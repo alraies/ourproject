@@ -166,6 +166,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CommHeesController.cs" />
+    <Compile Include="Controllers\CommitHeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SectionsController.cs" />
@@ -185,6 +187,9 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CommHee.cs" />
+    <Compile Include="Models\CommHeeMembers.cs" />
+    <Compile Include="Models\CommitHees.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Sections.cs" />
@@ -296,6 +301,16 @@
     <Content Include="Views\Teachers\Details.cshtml" />
     <Content Include="Views\Teachers\Edit.cshtml" />
     <Content Include="Views\Teachers\Index.cshtml" />
+    <Content Include="Views\CommitHees\Create.cshtml" />
+    <Content Include="Views\CommitHees\Delete.cshtml" />
+    <Content Include="Views\CommitHees\Details.cshtml" />
+    <Content Include="Views\CommitHees\Edit.cshtml" />
+    <Content Include="Views\CommitHees\Index.cshtml" />
+    <Content Include="Views\CommHees\Create.cshtml" />
+    <Content Include="Views\CommHees\Delete.cshtml" />
+    <Content Include="Views\CommHees\Details.cshtml" />
+    <Content Include="Views\CommHees\Edit.cshtml" />
+    <Content Include="Views\CommHees\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -36,5 +36,9 @@ namespace WebApplication2.Models
         public System.Data.Entity.DbSet<p00.Models.Topics> Topics { get; set; }
 
         public System.Data.Entity.DbSet<p00.Models.Teacher> Teachers { get; set; }
+
+        public System.Data.Entity.DbSet<p00.Models.CommitHees> CommitHees { get; set; }
+
+        public System.Data.Entity.DbSet<p00.Models.CommHee> CommHees { get; set; }
     }
 }
