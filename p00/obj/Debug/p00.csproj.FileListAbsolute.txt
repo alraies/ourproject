@@ -102,3 +102,4 @@ C:\Users\alrai\source\repos\p00\p00\bin\System.Web.Optimization.xml
 C:\Users\alrai\source\repos\p00\p00\obj\Debug\p00.csprojAssemblyReference.cache
 C:\Users\alrai\source\repos\p00\p00\obj\Debug\p00.Migrations.AddSectionsAndTobicsTables.resources
 C:\Users\alrai\source\repos\p00\p00\obj\Debug\p00.csproj.GenerateResource.cache
+C:\Users\alrai\source\repos\p00\p00\obj\Debug\p00.Migrations.AddTeacherTable.resources

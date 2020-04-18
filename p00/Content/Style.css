@@ -26,6 +26,7 @@
 .myfooter {
     background-color: #102e5e;
     padding: 10px;
+  
     font-family: myfont;
     color: #facd35;
 }
@@ -53,5 +54,6 @@
 
 body {
     padding-top: 50px;
+    padding-bottom:200px;
     overflow: auto;
 }

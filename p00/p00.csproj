@@ -169,6 +169,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SectionsController.cs" />
+    <Compile Include="Controllers\TeachersController.cs" />
     <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Controllers\TopicsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -178,11 +179,16 @@
     <Compile Include="Migrations\202004160850228_AddSectionsAndTobicsTables.Designer.cs">
       <DependentUpon>202004160850228_AddSectionsAndTobicsTables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004180248024_AddTeacherTable.cs" />
+    <Compile Include="Migrations\202004180248024_AddTeacherTable.Designer.cs">
+      <DependentUpon>202004180248024_AddTeacherTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Sections.cs" />
+    <Compile Include="Models\Teacher.cs" />
     <Compile Include="Models\Topics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -285,6 +291,11 @@
     <Content Include="Views\Topics\Details.cshtml" />
     <Content Include="Views\Topics\Edit.cshtml" />
     <Content Include="Views\Topics\Index.cshtml" />
+    <Content Include="Views\Teachers\Create.cshtml" />
+    <Content Include="Views\Teachers\Delete.cshtml" />
+    <Content Include="Views\Teachers\Details.cshtml" />
+    <Content Include="Views\Teachers\Edit.cshtml" />
+    <Content Include="Views\Teachers\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -298,6 +309,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202004160850228_AddSectionsAndTobicsTables.resx">
       <DependentUpon>202004160850228_AddSectionsAndTobicsTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004180248024_AddTeacherTable.resx">
+      <DependentUpon>202004180248024_AddTeacherTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

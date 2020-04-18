@@ -1,0 +1,112 @@
+﻿@model IEnumerable<p00.Models.Teacher>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.University)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.College)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Certificate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.C_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.C_Doner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GeneralSpecialization)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Specialization)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ScientificTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ST_Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ST_Doner)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.University)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.College)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Certificate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.C_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.C_Doner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GeneralSpecialization)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Specialization)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ScientificTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ST_Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ST_Doner)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
