@@ -185,6 +185,10 @@
     <Compile Include="Migrations\202004180248024_AddTeacherTable.Designer.cs">
       <DependentUpon>202004180248024_AddTeacherTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004181451500_InitalMigration.cs" />
+    <Compile Include="Migrations\202004181451500_InitalMigration.Designer.cs">
+      <DependentUpon>202004181451500_InitalMigration.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CommHee.cs" />
@@ -327,6 +331,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004180248024_AddTeacherTable.resx">
       <DependentUpon>202004180248024_AddTeacherTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004181451500_InitalMigration.resx">
+      <DependentUpon>202004181451500_InitalMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
