@@ -166,6 +166,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CommHeeMembersController.cs" />
     <Compile Include="Controllers\CommHeesController.cs" />
     <Compile Include="Controllers\CommitHeesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -188,6 +189,10 @@
     <Compile Include="Migrations\202004181451500_InitalMigration.cs" />
     <Compile Include="Migrations\202004181451500_InitalMigration.Designer.cs">
       <DependentUpon>202004181451500_InitalMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004190317192_updata.cs" />
+    <Compile Include="Migrations\202004190317192_updata.Designer.cs">
+      <DependentUpon>202004190317192_updata.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -315,6 +320,11 @@
     <Content Include="Views\CommHees\Details.cshtml" />
     <Content Include="Views\CommHees\Edit.cshtml" />
     <Content Include="Views\CommHees\Index.cshtml" />
+    <Content Include="Views\CommHeeMembers\Create.cshtml" />
+    <Content Include="Views\CommHeeMembers\Delete.cshtml" />
+    <Content Include="Views\CommHeeMembers\Details.cshtml" />
+    <Content Include="Views\CommHeeMembers\Edit.cshtml" />
+    <Content Include="Views\CommHeeMembers\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -334,6 +344,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004181451500_InitalMigration.resx">
       <DependentUpon>202004181451500_InitalMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004190317192_updata.resx">
+      <DependentUpon>202004190317192_updata.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

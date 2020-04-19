@@ -18,6 +18,6 @@ namespace p00.Models
         public int CommitHeesid { get; set; }
 
         public CommitHees CommitHees { get; set; }
-        public ICollection<CommHee> CommHeeCommHeeMembers { get; set; }
+        public ICollection<CommHeeMembers> CommHeeMembers { get; set; }
     }
 }

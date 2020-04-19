@@ -41,5 +41,7 @@ namespace p00.Models
         public string Email { get; set; }
         [Display(Name = "رقم الهاتف")]
         public string Phone { get; set; }
+
+        public ICollection<CommHeeMembers> CommHeeMembers { get; set; }
     }
 }

@@ -313,3 +313,5 @@ C:\Users\othman shaker\Desktop\project2\ourproject\p00\obj\Debug\p00.csproj.Copy
 C:\Users\othman shaker\Desktop\project2\ourproject\p00\obj\Debug\p00.dll
 C:\Users\othman shaker\Desktop\project2\ourproject\p00\obj\Debug\p00.pdb
 C:\Users\othman shaker\Desktop\project2\ourproject\p00\obj\Debug\p00.Migrations.InitalMigration.resources
+C:\Users\othman shaker\Desktop\project2\ourproject\p00\obj\Debug\p00.csprojAssemblyReference.cache
+C:\Users\othman shaker\Desktop\project2\ourproject\p00\obj\Debug\p00.Migrations.updata.resources
