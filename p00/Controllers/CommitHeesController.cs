@@ -42,7 +42,7 @@ namespace p00.Controllers
             var list1 = new List<string>() { "مؤقته", "دائما" };
             ViewBag.list1 = list1;
             var list2 = new List<string>() { "كيان", "لجنه" };
-            ViewBag.list2 = list1;
+            ViewBag.list2 = list2;
             return View();
         }
 

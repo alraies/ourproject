@@ -26,8 +26,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.comitDecipt, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.comitpriod, new SelectList(ViewBag.list1), "Select", htmlAttributes: new { @class = "form-control" })
-                @*@Html.EditorFor(model => model.comitDecipt, new { htmlAttributes = new { @class = "form-control" } })*@
+               
+                @Html.EditorFor(model => model.comitDecipt, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.comitDecipt, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -35,7 +35,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.comitpriod, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownListFor(model => model.comitpriod, new SelectList(ViewBag.list2), "Select", htmlAttributes: new { @class = "form-control" })
+                @Html.DropDownListFor(model => model.comitpriod, new SelectList(ViewBag.list1), "Select", htmlAttributes: new { @class = "form-control" })
                 @*@Html.EditorFor(model => model.comitpriod, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.comitpriod, "", new { @class = "text-danger" })
             </div>
@@ -44,7 +44,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.comittype, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.comittype, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.comitpriod, new SelectList(ViewBag.list2), "Select", htmlAttributes: new { @class = "form-control" })
+                @*@Html.EditorFor(model => model.comittype, new { htmlAttributes = new { @class = "form-control" } })*@
                 @Html.ValidationMessageFor(model => model.comittype, "", new { @class = "text-danger" })
             </div>
         </div>
