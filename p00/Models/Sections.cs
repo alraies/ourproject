@@ -18,7 +18,9 @@ namespace p00.Models
         [Required]
         [Display(Name = "وزن المحور")]
         public int TotalPoints { get; set; }
-        public ICollection<Topics> Topics { get; set; }
+        //public ICollection<Topics> Topics { get; set; }
+        public ICollection<SectionstoTopics> SectionstoTopics { get; set; }
+        
 
     }
 }

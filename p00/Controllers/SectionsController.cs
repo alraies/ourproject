@@ -33,7 +33,34 @@ namespace p00.Controllers
             {
                 return HttpNotFound();
             }
-            return View(sections);
+            var R = from b in db.Topics
+                    select new
+                    {
+                        b.Id,
+                        b.TopicName,
+                        b.Description,
+                        b.TotalPoints,
+                        b.ReqDoc,
+                        b.DocPoints,
+                        Checked = ((from ab in db.SectionstoTopics
+                                    where (ab.SectionsID == id) & (ab.TopicsID == b.Id)
+                                    select ab).Count() > 0)
+                    };
+            var Myviewmodel = new SectionsViewModel();
+            Myviewmodel.Id = id.Value;
+            Myviewmodel.SectionName = sections.SectionName;
+            Myviewmodel.Description = sections.Description;
+            Myviewmodel.TotalPoints = sections.TotalPoints;
+
+
+            var Myviewmodel2 = new List<TopicsViewModel>();
+            foreach (var item in R)
+            {
+                Myviewmodel2.Add(new TopicsViewModel { Id = item.Id, TopicName = item.TopicName, Description = item.Description, TotalPoints = item.TotalPoints, ReqDoc = item.ReqDoc, DocPoints = item.DocPoints, Checked = item.Checked });
+            }
+            Myviewmodel.Topics = Myviewmodel2;
+
+            return View(Myviewmodel);
         }
 
         // GET: Sections/Create
@@ -71,7 +98,34 @@ namespace p00.Controllers
             {
                 return HttpNotFound();
             }
-            return View(sections);
+            var R=from b in db.Topics
+                select new
+                {
+                    b.Id,
+                    b.TopicName,
+                    b.Description,
+                    b.TotalPoints,
+                    b.ReqDoc,
+                    b.DocPoints,
+                    Checked=((from ab in db.SectionstoTopics
+                              where(ab.SectionsID==id)&(ab.TopicsID== b.Id)
+                              select ab).Count()>0)
+                };
+            var Myviewmodel = new SectionsViewModel();
+            Myviewmodel.Id = id.Value;
+            Myviewmodel.SectionName = sections.SectionName;
+            Myviewmodel.Description = sections.Description;
+            Myviewmodel.TotalPoints = sections.TotalPoints;
+
+
+            var Myviewmodel2 = new List<TopicsViewModel>();
+            foreach(var item in R)
+            {
+                Myviewmodel2.Add(new TopicsViewModel { Id = item.Id, TopicName = item.TopicName,Description=item.Description,TotalPoints=item.TotalPoints,ReqDoc=item.ReqDoc,DocPoints=item.DocPoints ,Checked = item.Checked });
+            }
+            Myviewmodel.Topics = Myviewmodel2;
+
+            return View(Myviewmodel);
         }
 
         // POST: Sections/Edit/5
@@ -79,11 +133,31 @@ namespace p00.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,SectionName,Description,TotalPoints")] Sections sections)
+        public ActionResult Edit(SectionsViewModel sections)
         {
+
             if (ModelState.IsValid)
             {
-                db.Entry(sections).State = EntityState.Modified;
+                var Mysection = db.Sections.Find(sections.Id);
+                Mysection.SectionName = sections.SectionName;
+                Mysection.Description = sections.Description;
+                Mysection.TotalPoints = sections.TotalPoints;
+                foreach(var item in db.SectionstoTopics)
+                {
+                    if(item.SectionsID==sections.Id)
+                    {
+                        db.Entry(item).State = System.Data.Entity.EntityState.Deleted;
+                    }
+                }
+                foreach (var item in sections.Topics)
+                {
+                    if (item.Checked)
+                    {
+                        db.SectionstoTopics.Add(new SectionstoTopics { SectionsID = sections.Id, TopicsID = item.Id });
+                    }
+                }
+
+               
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

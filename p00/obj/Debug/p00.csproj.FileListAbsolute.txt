@@ -315,3 +315,5 @@ C:\Users\othman shaker\Desktop\project2\ourproject\p00\obj\Debug\p00.pdb
 C:\Users\othman shaker\Desktop\project2\ourproject\p00\obj\Debug\p00.Migrations.InitalMigration.resources
 C:\Users\othman shaker\Desktop\project2\ourproject\p00\obj\Debug\p00.csprojAssemblyReference.cache
 C:\Users\othman shaker\Desktop\project2\ourproject\p00\obj\Debug\p00.Migrations.updata.resources
+C:\Users\othman shaker\Desktop\project2\ourproject\p00\obj\Debug\p00.Migrations.saetion_topics.resources
+C:\Users\othman shaker\Desktop\project2\ourproject\p00\obj\Debug\p00.Migrations.saetion_topics2.resources

@@ -1,4 +1,4 @@
-﻿@model p00.Models.Sections
+﻿@model p00.Models.SectionsViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -33,6 +33,17 @@
 
         <dd>
             @Html.DisplayFor(model => model.TotalPoints)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Topics)
+        </dt>
+
+        <dd>
+           @foreach(var item in Model.Topics)
+           {
+               <div>@item.TopicName</div>
+           }
         </dd>
 
     </dl>
