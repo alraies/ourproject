@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -20,7 +21,8 @@ namespace p00.Models
         public int TotalPoints { get; set; }
         //public ICollection<Topics> Topics { get; set; }
         public ICollection<SectionstoTopics> SectionstoTopics { get; set; }
-        
+        public ICollection<EvaluaationFormtoSections> EvaluaationFormtoSections { get; set; }
+
 
     }
 }

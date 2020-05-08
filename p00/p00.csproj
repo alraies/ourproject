@@ -169,6 +169,7 @@
     <Compile Include="Controllers\CommHeeMembersController.cs" />
     <Compile Include="Controllers\CommHeesController.cs" />
     <Compile Include="Controllers\CommitHeesController.cs" />
+    <Compile Include="Controllers\EvaluationFormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\SectionsController.cs" />
@@ -202,11 +203,31 @@
     <Compile Include="Migrations\202005072019436_saetion_topics2.Designer.cs">
       <DependentUpon>202005072019436_saetion_topics2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005072253482_addEvaluationForm.cs" />
+    <Compile Include="Migrations\202005072253482_addEvaluationForm.Designer.cs">
+      <DependentUpon>202005072253482_addEvaluationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005072302037_addEvaluationForm1.cs" />
+    <Compile Include="Migrations\202005072302037_addEvaluationForm1.Designer.cs">
+      <DependentUpon>202005072302037_addEvaluationForm1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005080000239_addEvaluationFormmtomsection.cs" />
+    <Compile Include="Migrations\202005080000239_addEvaluationFormmtomsection.Designer.cs">
+      <DependentUpon>202005080000239_addEvaluationFormmtomsection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202005080034407_addEvaluationFormmtomsection1.cs" />
+    <Compile Include="Migrations\202005080034407_addEvaluationFormmtomsection1.Designer.cs">
+      <DependentUpon>202005080034407_addEvaluationFormmtomsection1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CheckSectionsViewModel.cs" />
     <Compile Include="Models\CommHee.cs" />
     <Compile Include="Models\CommHeeMembers.cs" />
     <Compile Include="Models\CommitHees.cs" />
+    <Compile Include="Models\EvaluaationFormtoSections.cs" />
+    <Compile Include="Models\EvaluationForm.cs" />
+    <Compile Include="Models\EvaluationFormViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Sections.cs" />
@@ -336,6 +357,11 @@
     <Content Include="Views\Topics\Details.cshtml" />
     <Content Include="Views\Topics\Edit.cshtml" />
     <Content Include="Views\Topics\Index.cshtml" />
+    <Content Include="Views\EvaluationForms\Create.cshtml" />
+    <Content Include="Views\EvaluationForms\Delete.cshtml" />
+    <Content Include="Views\EvaluationForms\Details.cshtml" />
+    <Content Include="Views\EvaluationForms\Edit.cshtml" />
+    <Content Include="Views\EvaluationForms\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -364,6 +390,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005072019436_saetion_topics2.resx">
       <DependentUpon>202005072019436_saetion_topics2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005072253482_addEvaluationForm.resx">
+      <DependentUpon>202005072253482_addEvaluationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005072302037_addEvaluationForm1.resx">
+      <DependentUpon>202005072302037_addEvaluationForm1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005080000239_addEvaluationFormmtomsection.resx">
+      <DependentUpon>202005080000239_addEvaluationFormmtomsection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005080034407_addEvaluationFormmtomsection1.resx">
+      <DependentUpon>202005080034407_addEvaluationFormmtomsection1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

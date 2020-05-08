@@ -42,6 +42,8 @@ namespace WebApplication2.Models
         public System.Data.Entity.DbSet<p00.Models.CommHee> CommHees { get; set; }
 
         public System.Data.Entity.DbSet<p00.Models.CommHeeMembers> CommHeeMembers { get; set; }
+        public System.Data.Entity.DbSet<p00.Models.EvaluationForm> EvaluationForm { get; set; }
         public System.Data.Entity.DbSet<p00.Models.SectionstoTopics> SectionstoTopics { get; set; }
+        public System.Data.Entity.DbSet<p00.Models.EvaluaationFormtoSections> EvaluaationFormtoSections { get; set; }
     }
 }

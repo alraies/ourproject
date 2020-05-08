@@ -40,10 +40,13 @@
         </dt>
 
         <dd>
-           @foreach(var item in Model.Topics)
-           {
-               <div>@item.TopicName</div>
-           }
+            @foreach (var item in Model.Topics)
+            {
+                if (item.Checked)
+                {
+                    <div>@item.TopicName</div>
+                    }
+                }
         </dd>
 
     </dl>
