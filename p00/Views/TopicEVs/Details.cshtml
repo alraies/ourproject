@@ -1,0 +1,75 @@
+﻿@model p00.Models.TopicEV
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TopicEV</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Document.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Document.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EvaluationForm.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EvaluationForm.id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Teacher.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Teacher.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SectionId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SectionId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Points)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Points)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Approved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Approved)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

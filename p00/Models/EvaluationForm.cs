@@ -16,6 +16,7 @@ namespace p00.Models
         [Display(Name = "الفعاله")]
         public bool iscurent { get; set; }
         public ICollection<EvaluaationFormtoSections> EvaluaationFormtoSections { get; set; }
+        public ICollection<TopicEV> TopicEVs { get; set; }
        
 
     }

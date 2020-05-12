@@ -28,6 +28,7 @@ namespace p00.Models
         //public int SectionsId { get; set; }
         //public Sections Sections { get; set; }
         public ICollection<SectionstoTopics> SectionstoTopics { get; set; }
+        public ICollection<TopicEV> TopicEVs { get; set; }
 
     }
 }

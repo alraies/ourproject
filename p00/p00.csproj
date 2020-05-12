@@ -175,6 +175,7 @@
     <Compile Include="Controllers\SectionsController.cs" />
     <Compile Include="Controllers\TeachersController.cs" />
     <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\TopicEVsController.cs" />
     <Compile Include="Controllers\TopicsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -219,12 +220,17 @@
     <Compile Include="Migrations\202005080034407_addEvaluationFormmtomsection1.Designer.cs">
       <DependentUpon>202005080034407_addEvaluationFormmtomsection1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202005120818303_AddTopicEvTableAndDocumentTable.cs" />
+    <Compile Include="Migrations\202005120818303_AddTopicEvTableAndDocumentTable.Designer.cs">
+      <DependentUpon>202005120818303_AddTopicEvTableAndDocumentTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckSectionsViewModel.cs" />
     <Compile Include="Models\CommHee.cs" />
     <Compile Include="Models\CommHeeMembers.cs" />
     <Compile Include="Models\CommitHees.cs" />
+    <Compile Include="Models\Document.cs" />
     <Compile Include="Models\EvaluaationFormtoSections.cs" />
     <Compile Include="Models\EvaluationForm.cs" />
     <Compile Include="Models\EvaluationFormViewModel.cs" />
@@ -234,6 +240,7 @@
     <Compile Include="Models\SectionstoTopics.cs" />
     <Compile Include="Models\SectionsViewModel.cs" />
     <Compile Include="Models\Teacher.cs" />
+    <Compile Include="Models\TopicEV.cs" />
     <Compile Include="Models\Topics.cs" />
     <Compile Include="Models\TopicsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -362,6 +369,11 @@
     <Content Include="Views\EvaluationForms\Details.cshtml" />
     <Content Include="Views\EvaluationForms\Edit.cshtml" />
     <Content Include="Views\EvaluationForms\Index.cshtml" />
+    <Content Include="Views\TopicEVs\Create.cshtml" />
+    <Content Include="Views\TopicEVs\Delete.cshtml" />
+    <Content Include="Views\TopicEVs\Details.cshtml" />
+    <Content Include="Views\TopicEVs\Edit.cshtml" />
+    <Content Include="Views\TopicEVs\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -402,6 +414,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005080034407_addEvaluationFormmtomsection1.resx">
       <DependentUpon>202005080034407_addEvaluationFormmtomsection1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202005120818303_AddTopicEvTableAndDocumentTable.resx">
+      <DependentUpon>202005120818303_AddTopicEvTableAndDocumentTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -43,5 +43,6 @@ namespace p00.Models
         public string Phone { get; set; }
 
         public ICollection<CommHeeMembers> CommHeeMembers { get; set; }
+        public ICollection<TopicEV> TopicEVs { get; set; }
     }
 }

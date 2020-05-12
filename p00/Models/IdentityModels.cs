@@ -3,6 +3,7 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using p00.Models;
 
 namespace WebApplication2.Models
 {
@@ -23,9 +24,10 @@ namespace WebApplication2.Models
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
+
         {
         }
-
+       
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
@@ -45,5 +47,9 @@ namespace WebApplication2.Models
         public System.Data.Entity.DbSet<p00.Models.EvaluationForm> EvaluationForm { get; set; }
         public System.Data.Entity.DbSet<p00.Models.SectionstoTopics> SectionstoTopics { get; set; }
         public System.Data.Entity.DbSet<p00.Models.EvaluaationFormtoSections> EvaluaationFormtoSections { get; set; }
+
+        public System.Data.Entity.DbSet<p00.Models.TopicEV> TopicEVs { get; set; }
+
+        public System.Data.Entity.DbSet<p00.Models.Document> Documents { get; set; }
     }
 }

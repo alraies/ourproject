@@ -1,0 +1,70 @@
+﻿@model IEnumerable<p00.Models.TopicEV>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Document.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EvaluationForm.id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Teacher.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SectionId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TopicId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Points)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Approved)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Document.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EvaluationForm.id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teacher.FullName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SectionId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TopicId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Points)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Approved)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

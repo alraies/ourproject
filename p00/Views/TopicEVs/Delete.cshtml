@@ -1,0 +1,81 @@
+﻿@model p00.Models.TopicEV
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TopicEV</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Document.Id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Document.Id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EvaluationForm.id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EvaluationForm.id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Teacher.FullName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Teacher.FullName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SectionId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SectionId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TopicId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TopicId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Points)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Points)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Approved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Approved)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
