@@ -139,22 +139,48 @@ namespace p00.Controllers
                 Mysection.year = evaluationForm.year;
                 Mysection.iscurent = evaluationForm.iscurent;
 
-                foreach (var item in db.EvaluaationFormtoSections)
-                {
-                    if (item.EvaluationFormID == evaluationForm.id)
-                    {
-                        db.Entry(item).State = System.Data.Entity.EntityState.Deleted;
-                    }
-                }
-                foreach (var item in evaluationForm.Sections)
-                {
-                    if (item.Checked)
-                    {
-                        db.EvaluaationFormtoSections.Add(new EvaluaationFormtoSections { EvaluationFormID = evaluationForm.id, SectionsID = item.Id });
-                    }
-                }
 
-                db.SaveChanges();
+            foreach (var item in db.EvaluaationFormtoSections)
+            {
+                if (item.EvaluationFormID == evaluationForm.id)
+                {
+                    foreach (var item2 in evaluationForm.Sections)
+                    {
+
+                        if (item.SectionsID == item2.Id)
+                        {
+                            if (item2.Checked)
+                            {
+
+                            }
+                            else
+                                db.Entry(item).State = System.Data.Entity.EntityState.Deleted;
+                        }
+
+                    }
+                }
+            }
+            bool A = true;
+            foreach (var item in evaluationForm.Sections)
+            {
+                if (item.Checked)
+                {
+                    foreach (var item2 in db.EvaluaationFormtoSections)
+                    {
+                        if (item.Id == item2.SectionsID)
+                        {
+                            A = false;
+                        }
+
+                    }
+                    if (A)
+                        db.EvaluaationFormtoSections.Add(new EvaluaationFormtoSections { EvaluationFormID = evaluationForm.id, SectionsID = item.Id });
+                    A = true;
+                }
+            }
+
+
+            db.SaveChanges();
                 return RedirectToAction("Index");
           //  }
             return View(evaluationForm);

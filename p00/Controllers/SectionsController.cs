@@ -142,22 +142,47 @@ namespace p00.Controllers
                 Mysection.SectionName = sections.SectionName;
                 Mysection.Description = sections.Description;
                 Mysection.TotalPoints = sections.TotalPoints;
-                foreach(var item in db.SectionstoTopics)
+
+                foreach (var item in db.SectionstoTopics)
                 {
-                    if(item.SectionsID==sections.Id)
+                    if (item.SectionsID == sections.Id)
                     {
-                        db.Entry(item).State = System.Data.Entity.EntityState.Deleted;
+                        foreach (var item2 in sections.Topics)
+                        {
+
+                            if (item.TopicsID == item2.Id)
+                            {
+                                if (item2.Checked)
+                                {
+
+                                }
+                                else
+                                    db.Entry(item).State = System.Data.Entity.EntityState.Deleted;
+                            }
+
+                        }
                     }
                 }
+                bool A = true;
                 foreach (var item in sections.Topics)
                 {
                     if (item.Checked)
                     {
-                        db.SectionstoTopics.Add(new SectionstoTopics { SectionsID = sections.Id, TopicsID = item.Id });
+                        foreach (var item2 in db.SectionstoTopics)
+                        {
+                            if (item.Id == item2.TopicsID)
+                            {
+                                A = false;
+                            }
+
+                        }
+                        if (A)
+                            db.SectionstoTopics.Add(new SectionstoTopics { SectionsID = sections.Id, TopicsID = item.Id });
+                        A = true;
                     }
                 }
 
-               
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

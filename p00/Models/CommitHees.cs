@@ -20,6 +20,7 @@ namespace p00.Models
         [DisplayName("تفعيل اللجنه")]
         public bool isActive { get; set; }
 
+        public ICollection<Topics> Topics { get; set; }
         public ICollection<CommHee> CommHee { get; set; }
     }
 }

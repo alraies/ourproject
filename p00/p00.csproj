@@ -147,6 +147,7 @@
     <Content Include="Content\font\glyphicons-halflings-regular.svg" />
     <Content Include="Content\font\index.html" />
     <Content Include="Content\Style.css" />
+    <Content Include="Content\styles.css" />
     <Content Include="fonts\font-awesome.css" />
     <Content Include="fonts\font-awesome.min.css" />
     <Content Include="fonts\fontawesome-webfont.svg" />
@@ -172,6 +173,8 @@
     <Compile Include="Controllers\EvaluationFormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\NotificationsController.cs" />
+    <Compile Include="Controllers\RolesController.cs" />
     <Compile Include="Controllers\SectionsController.cs" />
     <Compile Include="Controllers\TeachersController.cs" />
     <Compile Include="Controllers\TestController.cs" />
@@ -224,6 +227,18 @@
     <Compile Include="Migrations\202005120818303_AddTopicEvTableAndDocumentTable.Designer.cs">
       <DependentUpon>202005120818303_AddTopicEvTableAndDocumentTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006141449428_topicsTocommithees.cs" />
+    <Compile Include="Migrations\202006141449428_topicsTocommithees.Designer.cs">
+      <DependentUpon>202006141449428_topicsTocommithees.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006171151226_Notifiation.cs" />
+    <Compile Include="Migrations\202006171151226_Notifiation.Designer.cs">
+      <DependentUpon>202006171151226_Notifiation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006171159257_Notifiation1.cs" />
+    <Compile Include="Migrations\202006171159257_Notifiation1.Designer.cs">
+      <DependentUpon>202006171159257_Notifiation1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckSectionsViewModel.cs" />
@@ -236,6 +251,8 @@
     <Compile Include="Models\EvaluationFormViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Notification.cs" />
+    <Compile Include="Models\RoleViewModel.cs" />
     <Compile Include="Models\Sections.cs" />
     <Compile Include="Models\SectionstoTopics.cs" />
     <Compile Include="Models\SectionsViewModel.cs" />
@@ -359,11 +376,6 @@
     <Content Include="Views\CommHeeMembers\Details.cshtml" />
     <Content Include="Views\CommHeeMembers\Edit.cshtml" />
     <Content Include="Views\CommHeeMembers\Index.cshtml" />
-    <Content Include="Views\Topics\Create.cshtml" />
-    <Content Include="Views\Topics\Delete.cshtml" />
-    <Content Include="Views\Topics\Details.cshtml" />
-    <Content Include="Views\Topics\Edit.cshtml" />
-    <Content Include="Views\Topics\Index.cshtml" />
     <Content Include="Views\EvaluationForms\Create.cshtml" />
     <Content Include="Views\EvaluationForms\Delete.cshtml" />
     <Content Include="Views\EvaluationForms\Details.cshtml" />
@@ -374,6 +386,17 @@
     <Content Include="Views\TopicEVs\Details.cshtml" />
     <Content Include="Views\TopicEVs\Edit.cshtml" />
     <Content Include="Views\TopicEVs\Index.cshtml" />
+    <Content Include="Views\Topics\Create.cshtml" />
+    <Content Include="Views\Topics\Delete.cshtml" />
+    <Content Include="Views\Topics\Details.cshtml" />
+    <Content Include="Views\Topics\Edit.cshtml" />
+    <Content Include="Views\Topics\Index.cshtml" />
+    <Content Include="Views\Roles\Index.cshtml" />
+    <Content Include="Views\Roles\Create.cshtml" />
+    <Content Include="Views\Roles\Details.cshtml" />
+    <Content Include="Views\Roles\Edit.cshtml" />
+    <Content Include="Views\Roles\Delete.cshtml" />
+    <Content Include="Views\Account\EditProfile.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -383,6 +406,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Notifications\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202004160850228_AddSectionsAndTobicsTables.resx">
@@ -417,6 +441,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202005120818303_AddTopicEvTableAndDocumentTable.resx">
       <DependentUpon>202005120818303_AddTopicEvTableAndDocumentTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006141449428_topicsTocommithees.resx">
+      <DependentUpon>202006141449428_topicsTocommithees.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006171151226_Notifiation.resx">
+      <DependentUpon>202006171151226_Notifiation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006171159257_Notifiation1.resx">
+      <DependentUpon>202006171159257_Notifiation1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

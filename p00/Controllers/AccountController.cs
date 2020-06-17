@@ -17,9 +17,10 @@ namespace WebApplication2.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-
+        private ApplicationDbContext db;
         public AccountController()
         {
+            db = new ApplicationDbContext();
         }
 
         public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
@@ -139,7 +140,7 @@ namespace WebApplication2.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            ViewBag.AccountType = new SelectList(new[] { "تدريسي","مسؤل مباشر", "لجنة علمية" });
+            ViewBag.AccountType = new SelectList(db.Roles,"Name","Name");
             return View();
         }
 
@@ -152,19 +153,19 @@ namespace WebApplication2.Controllers
         {
             if (ModelState.IsValid)
             {
-                ViewBag.AccountType = new SelectList(new[] { "تدريسي", "مسؤل مباشر", "لجنة علمية" });
+                ViewBag.AccountType = new SelectList(db.Roles, "Name", "Name");
                 var user = new ApplicationUser { UserName = model.Username, Email = model.Email,AccountType=model.AccountType };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
-
+                    await UserManager.AddToRoleAsync(user.Id, model.AccountType);
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
@@ -172,6 +173,38 @@ namespace WebApplication2.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+        public ActionResult EditProfile()
+        {
+            var UserID = User.Identity.GetUserId();
+            var user = db.Users.Where(a => a.Id == UserID).SingleOrDefault();
+            EditProfileViewModel profile = new EditProfileViewModel();
+            profile.Username = user.UserName;
+            profile.Email = user.Email;
+            return View(profile);
+        }
+
+        [HttpPost]
+        public ActionResult EditProfile(EditProfileViewModel profile)
+        {
+            var UserID = User.Identity.GetUserId();
+            var CurrentUser = db.Users.Where(a => a.Id == UserID).SingleOrDefault();
+            if (!UserManager.CheckPassword(CurrentUser, profile.CurrentPassword))
+            {
+                ViewBag.Message = "كلمة السر الحالية غير صحيحة";
+            }
+            else
+            {
+                var newPasswordHash = UserManager.PasswordHasher.HashPassword(profile.NewPassword);
+                CurrentUser.UserName = profile.Username;
+                CurrentUser.Email = profile.Email;
+                CurrentUser.PasswordHash = newPasswordHash;
+                db.Entry(CurrentUser).State = System.Data.Entity.EntityState.Modified;
+                db.SaveChanges();
+                ViewBag.Message = "تمت عملية التحديث بنجاح";
+
+            }
+            return View(profile);
         }
 
         //

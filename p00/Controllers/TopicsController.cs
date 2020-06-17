@@ -18,7 +18,8 @@ namespace p00.Controllers
         // GET: Topics
         public ActionResult Index()
         {
-            return View(db.Topics.ToList());
+            var topics = db.Topics.Include(t => t.CommitHees);
+            return View(topics.ToList());
         }
 
         // GET: Topics/Details/5
@@ -39,15 +40,16 @@ namespace p00.Controllers
         // GET: Topics/Create
         public ActionResult Create()
         {
+            ViewBag.CommitHeesID = new SelectList(db.CommitHees, "id", "comitname");
             return View();
         }
 
         // POST: Topics/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,TopicName,Description,TotalPoints,ReqDoc,DocPoints")] Topics topics)
+        public ActionResult Create([Bind(Include = "Id,TopicName,Description,TotalPoints,ReqDoc,DocPoints,CommitHeesID")] Topics topics)
         {
             if (ModelState.IsValid)
             {
@@ -56,6 +58,7 @@ namespace p00.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.CommitHeesID = new SelectList(db.CommitHees, "id", "comitname", topics.CommitHeesID);
             return View(topics);
         }
 
@@ -71,15 +74,16 @@ namespace p00.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.CommitHeesID = new SelectList(db.CommitHees, "id", "comitname", topics.CommitHeesID);
             return View(topics);
         }
 
         // POST: Topics/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,TopicName,Description,TotalPoints,ReqDoc,DocPoints")] Topics topics)
+        public ActionResult Edit([Bind(Include = "Id,TopicName,Description,TotalPoints,ReqDoc,DocPoints,CommitHeesID")] Topics topics)
         {
             if (ModelState.IsValid)
             {
@@ -87,6 +91,7 @@ namespace p00.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.CommitHeesID = new SelectList(db.CommitHees, "id", "comitname", topics.CommitHeesID);
             return View(topics);
         }
 

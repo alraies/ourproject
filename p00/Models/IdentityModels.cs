@@ -51,5 +51,9 @@ namespace WebApplication2.Models
         public System.Data.Entity.DbSet<p00.Models.TopicEV> TopicEVs { get; set; }
 
         public System.Data.Entity.DbSet<p00.Models.Document> Documents { get; set; }
+
+        public System.Data.Entity.DbSet<p00.Models.Notification> Notifications { get; set; }
+
+      
     }
 }
