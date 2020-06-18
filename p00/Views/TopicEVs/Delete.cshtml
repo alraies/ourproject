@@ -13,19 +13,19 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Document.Id)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Document.Id)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.EvaluationForm.id)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.EvaluationForm.id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sections.SectionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sections.SectionName)
         </dd>
 
         <dt>
@@ -37,19 +37,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.SectionId)
+            @Html.DisplayNameFor(model => model.Topics.TopicName)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.SectionId)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.TopicId)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.TopicId)
+            @Html.DisplayFor(model => model.Topics.TopicName)
         </dd>
 
         <dt>

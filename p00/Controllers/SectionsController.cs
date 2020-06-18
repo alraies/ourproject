@@ -170,7 +170,7 @@ namespace p00.Controllers
                     {
                         foreach (var item2 in db.SectionstoTopics)
                         {
-                            if (item.Id == item2.TopicsID)
+                            if (item.Id == item2.TopicsID&&sections.Id==item2.SectionsID)
                             {
                                 A = false;
                             }
@@ -180,6 +180,7 @@ namespace p00.Controllers
                             db.SectionstoTopics.Add(new SectionstoTopics { SectionsID = sections.Id, TopicsID = item.Id });
                         A = true;
                     }
+                  
                 }
 
 

@@ -30,7 +30,7 @@ namespace p00.Models
         public int CommitHeesID { get; set; }
         public CommitHees CommitHees { get; set; }
         public ICollection<SectionstoTopics> SectionstoTopics { get; set; }
-        public ICollection<TopicEV> TopicEVs { get; set; }
+       // public ICollection<TopicEV> TopicEVs { get; set; }
 
     }
 }

@@ -20,7 +20,119 @@ namespace p00.Controllers
         {
             return View(db.EvaluationForm.ToList());
         }
+        public ActionResult into(int? id)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
+            EvaluationForm evaluationForm = db.EvaluationForm.Find(id);
+            var R = from b in db.EvaluaationFormtoSections
+                    select new
+                    {
+                        b.EvaluationFormID,
+                        b.SectionsID,
+                    };
+            var R2 = from b in db.SectionstoTopics select new
+                    {
+                        b.TopicsID,
+                        b.SectionsID,
+                    };
+            var R3 = from b in db.Teachers
+                     select new
+                     {
+                         b.Id
+                     };
+            var lasit = new List<TopicEV>();
+            var lasit2 = new List<EvaluaationFormtoSections>();
+            var lasit3 = new List<SectionstoTopics>();
+            foreach (var item in R)
+            {
+                lasit2.Add(new EvaluaationFormtoSections { EvaluationFormID = item.EvaluationFormID, SectionsID = item.SectionsID });
+            }
+            foreach (var item in R2)
+            {
+                lasit3.Add(new SectionstoTopics {SectionsID = item.SectionsID,TopicsID=item.TopicsID });
+            }
+            foreach (var item in lasit2)
+            {
+                if (item.EvaluationFormID == id)
+                {
+                    foreach (var item2 in lasit3)
+                    {
+                        if (item2.SectionsID == item.SectionsID)
+                        {
+                            foreach (var item3 in R3)
+                                lasit.Add(new TopicEV {EvaluationFormId = item.EvaluationFormID, SectionsId = item.SectionsID, TopicsId = item2.TopicsID, TeacherId = item3.Id });
+                        }
+                    }
+                }
+            }
+            return View(lasit);
+        }
+            [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult into(int? id,EvaluationForm evaluationForm)
+        {
+            if (id == null)
+            {
+                return HttpNotFound();
+            }
 
+          //  EvaluationForm evaluationForm = db.EvaluationForm.Find(id);
+            var R = from b in db.Sections
+                    select new
+                    {
+                        b.Id,
+                        b.SectionName,
+                        b.Description,
+                        b.TotalPoints,
+
+                        Checked = ((from ab in db.EvaluaationFormtoSections
+                                    where (ab.EvaluationFormID == id) & (ab.SectionsID == b.Id)
+                                    select ab).Count() > 0)
+                    };
+            Sections sections =new Sections();
+            Topics topics = new Topics();
+            Teacher teacher = new Teacher();
+            var R3 = from b in db.Teachers
+                     select new
+                     {
+                         b.Id
+                     };
+        foreach (var item in R)
+            {
+                sections = db.Sections.Find(item.Id);
+                var R2 = from b in db.Topics
+                         select new
+                         {
+                             b.Id,
+                             b.TopicName,
+                             b.Description,
+                             b.TotalPoints,
+                             b.ReqDoc,
+                             b.DocPoints,
+                             Checked = ((from ab in db.SectionstoTopics
+                                         where (ab.SectionsID ==item.Id) & (ab.TopicsID == b.Id)
+                                         select ab).Count() > 0)
+                         };
+                
+                foreach (var item2 in R2)
+                {
+                    topics = db.Topics.Find(item2.Id);
+                    foreach (var item3 in R3)
+                    {
+                      //  teacher = db.Teachers.Find(item.Id);
+                      //  db.TopicEVs.Add(new TopicEV { EvaluationFormId = evaluationForm.id, SectionsId = sections.Id, TopicsId = topics.Id, TeacherId =teacher.Id });
+                        db.TopicEVs.Add(new TopicEV { EvaluationFormId =id.Value, SectionsId = item.Id,TopicsId=item2.Id,TeacherId=item3.Id});
+                   
+                    }
+                }
+               // db.SaveChanges();
+            }
+            db.SaveChanges();
+                return View();
+        }
         // GET: EvaluationForms/Details/5
         public ActionResult Details(int? id)
         {
@@ -167,7 +279,7 @@ namespace p00.Controllers
                 {
                     foreach (var item2 in db.EvaluaationFormtoSections)
                     {
-                        if (item.Id == item2.SectionsID)
+                        if (item.Id == item2.SectionsID&&evaluationForm.id==item2.EvaluationFormID)
                         {
                             A = false;
                         }
@@ -220,5 +332,6 @@ namespace p00.Controllers
             }
             base.Dispose(disposing);
         }
+        
     }
 }

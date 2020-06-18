@@ -13,19 +13,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Document.Id)
+            @Html.DisplayNameFor(model => model.EvaluationForm.id)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EvaluationForm.id)
+            @Html.DisplayNameFor(model => model.Sections.SectionName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Teacher.FullName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.SectionId)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.TopicId)
+            @Html.DisplayNameFor(model => model.Topics.TopicName)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Points)
@@ -39,19 +36,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Document.Id)
+            @Html.DisplayFor(modelItem => item.EvaluationForm.id)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.EvaluationForm.id)
+            @Html.DisplayFor(modelItem => item.Sections.SectionName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Teacher.FullName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.SectionId)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TopicId)
+            @Html.DisplayFor(modelItem => item.Topics.TopicName)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Points)

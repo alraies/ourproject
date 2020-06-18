@@ -8,6 +8,8 @@
         var db = new ApplicationDbContext();
         var UserID = User.Identity.GetUserId();
         var CurrentUser = db.Users.Where(a => a.Id == UserID).SingleOrDefault();
+        var CurrentTeacher = db.UserToTeachers.Where(a => a.UserID == UserID).SingleOrDefault();
+
         //Secure from Hackers
                    @Html.AntiForgeryToken()
     <ul class="nav  navbar-nav navbar-right">
@@ -34,15 +36,17 @@
                                         @CurrentUser.UserName
                                     </strong>
                                 </p>
-                                @*@if (CurrentUser.UserType == "الناشرون")
+                                @if (CurrentTeacher!=null)
                                 {
-                                    <a href="~/Home/GetJobsByPublisher" class="btn btn-success">الوظائف التي قمت بنشرها</a>
-                                    <a href="~/Jobs/Create" class="btn btn-success">نشر وظيفة جديدة</a>
+                                     @*@if (CurrentUser.Id == CurrentTeacher.UserID) { }*@
+                            <a href="~/Teachers/Edit" class="btn btn-success btn-block">تعديل معلومات الحساب</a>
+
+
                                 }
                                 else
                                 {
-                                    <a href="~/Home/GetJobsByUser" class="btn btn-success btn-block">الوظائف التي تقدمت إليها</a>
-                                }*@
+                            <a href="~/Teachers/Create" class="btn btn-success btn-block">اضافة معلومات حسابك</a>
+                        }
                                 <a href="~/Account/EditProfile" class="btn btn-primary btn-block">تعديل الحساب</a>
                             </div>
                         </div>

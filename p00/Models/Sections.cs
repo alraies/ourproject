@@ -22,7 +22,7 @@ namespace p00.Models
         //public ICollection<Topics> Topics { get; set; }
         public ICollection<SectionstoTopics> SectionstoTopics { get; set; }
         public ICollection<EvaluaationFormtoSections> EvaluaationFormtoSections { get; set; }
-        public ICollection<TopicEV> TopicEVs { get; set; }
+      //  public ICollection<TopicEV> TopicEVs { get; set; }
 
 
     }

@@ -239,6 +239,22 @@
     <Compile Include="Migrations\202006171159257_Notifiation1.Designer.cs">
       <DependentUpon>202006171159257_Notifiation1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006180048014_UserToTeacher1.cs" />
+    <Compile Include="Migrations\202006180048014_UserToTeacher1.Designer.cs">
+      <DependentUpon>202006180048014_UserToTeacher1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006180347086_EvaluationToTopicEV.cs" />
+    <Compile Include="Migrations\202006180347086_EvaluationToTopicEV.Designer.cs">
+      <DependentUpon>202006180347086_EvaluationToTopicEV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006181052161_EvaluationToTopicEV2.cs" />
+    <Compile Include="Migrations\202006181052161_EvaluationToTopicEV2.Designer.cs">
+      <DependentUpon>202006181052161_EvaluationToTopicEV2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006181320063_EvaluationToTopicEV3.cs" />
+    <Compile Include="Migrations\202006181320063_EvaluationToTopicEV3.Designer.cs">
+      <DependentUpon>202006181320063_EvaluationToTopicEV3.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckSectionsViewModel.cs" />
@@ -260,6 +276,7 @@
     <Compile Include="Models\TopicEV.cs" />
     <Compile Include="Models\Topics.cs" />
     <Compile Include="Models\TopicsViewModel.cs" />
+    <Compile Include="Models\UserToTeacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -381,11 +398,6 @@
     <Content Include="Views\EvaluationForms\Details.cshtml" />
     <Content Include="Views\EvaluationForms\Edit.cshtml" />
     <Content Include="Views\EvaluationForms\Index.cshtml" />
-    <Content Include="Views\TopicEVs\Create.cshtml" />
-    <Content Include="Views\TopicEVs\Delete.cshtml" />
-    <Content Include="Views\TopicEVs\Details.cshtml" />
-    <Content Include="Views\TopicEVs\Edit.cshtml" />
-    <Content Include="Views\TopicEVs\Index.cshtml" />
     <Content Include="Views\Topics\Create.cshtml" />
     <Content Include="Views\Topics\Delete.cshtml" />
     <Content Include="Views\Topics\Details.cshtml" />
@@ -397,6 +409,12 @@
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\Delete.cshtml" />
     <Content Include="Views\Account\EditProfile.cshtml" />
+    <Content Include="Views\TopicEVs\Create.cshtml" />
+    <Content Include="Views\TopicEVs\Delete.cshtml" />
+    <Content Include="Views\TopicEVs\Details.cshtml" />
+    <Content Include="Views\TopicEVs\Edit.cshtml" />
+    <Content Include="Views\TopicEVs\Index.cshtml" />
+    <Content Include="Views\EvaluationForms\into.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -450,6 +468,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006171159257_Notifiation1.resx">
       <DependentUpon>202006171159257_Notifiation1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006180048014_UserToTeacher1.resx">
+      <DependentUpon>202006180048014_UserToTeacher1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006180347086_EvaluationToTopicEV.resx">
+      <DependentUpon>202006180347086_EvaluationToTopicEV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006181052161_EvaluationToTopicEV2.resx">
+      <DependentUpon>202006181052161_EvaluationToTopicEV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006181320063_EvaluationToTopicEV3.resx">
+      <DependentUpon>202006181320063_EvaluationToTopicEV3.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
