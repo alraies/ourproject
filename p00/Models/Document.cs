@@ -8,10 +8,10 @@ namespace p00.Models
 {
     public class Document
     {
-       // [ForeignKey("TopicEV")]
+        [ForeignKey("TopicEV")]
         public int Id { get; set; }
-        public bool Approved { get; set; }
-      //  public virtual TopicEV TopicEV { get; set; }
+        public string Name { get; set; }
+        public virtual TopicEV TopicEV { get; set; }
 
     }
 }

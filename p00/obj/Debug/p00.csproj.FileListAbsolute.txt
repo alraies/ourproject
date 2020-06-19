@@ -551,8 +551,11 @@ C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.pdb
 C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.topicsTocommithees.resources
 C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.Notifiation.resources
 C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.Notifiation1.resources
-C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.csprojAssemblyReference.cache
 C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.UserToTeacher1.resources
 C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.EvaluationToTopicEV.resources
 C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.EvaluationToTopicEV2.resources
 C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.EvaluationToTopicEV3.resources
+C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.DocumentToTopicEV.resources
+C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.DocumentToTopicEV1.resources
+C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.csprojAssemblyReference.cache
+C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.TopicEVToTopics.resources

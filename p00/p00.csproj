@@ -170,6 +170,7 @@
     <Compile Include="Controllers\CommHeeMembersController.cs" />
     <Compile Include="Controllers\CommHeesController.cs" />
     <Compile Include="Controllers\CommitHeesController.cs" />
+    <Compile Include="Controllers\DocumentController.cs" />
     <Compile Include="Controllers\EvaluationFormsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -254,6 +255,18 @@
     <Compile Include="Migrations\202006181320063_EvaluationToTopicEV3.cs" />
     <Compile Include="Migrations\202006181320063_EvaluationToTopicEV3.Designer.cs">
       <DependentUpon>202006181320063_EvaluationToTopicEV3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006182229531_DocumentToTopicEV.cs" />
+    <Compile Include="Migrations\202006182229531_DocumentToTopicEV.Designer.cs">
+      <DependentUpon>202006182229531_DocumentToTopicEV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006182234441_DocumentToTopicEV1.cs" />
+    <Compile Include="Migrations\202006182234441_DocumentToTopicEV1.Designer.cs">
+      <DependentUpon>202006182234441_DocumentToTopicEV1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006191014073_TopicEVToTopics.cs" />
+    <Compile Include="Migrations\202006191014073_TopicEVToTopics.Designer.cs">
+      <DependentUpon>202006191014073_TopicEVToTopics.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -409,12 +422,14 @@
     <Content Include="Views\Roles\Edit.cshtml" />
     <Content Include="Views\Roles\Delete.cshtml" />
     <Content Include="Views\Account\EditProfile.cshtml" />
+    <Content Include="Views\EvaluationForms\into.cshtml" />
     <Content Include="Views\TopicEVs\Create.cshtml" />
     <Content Include="Views\TopicEVs\Delete.cshtml" />
     <Content Include="Views\TopicEVs\Details.cshtml" />
     <Content Include="Views\TopicEVs\Edit.cshtml" />
     <Content Include="Views\TopicEVs\Index.cshtml" />
-    <Content Include="Views\EvaluationForms\into.cshtml" />
+    <Content Include="Views\Document\Create.cshtml" />
+    <Content Include="Views\Home\Create.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -424,6 +439,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\" />
     <Folder Include="Views\Notifications\" />
   </ItemGroup>
   <ItemGroup>
@@ -480,6 +496,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006181320063_EvaluationToTopicEV3.resx">
       <DependentUpon>202006181320063_EvaluationToTopicEV3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006182229531_DocumentToTopicEV.resx">
+      <DependentUpon>202006182229531_DocumentToTopicEV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006182234441_DocumentToTopicEV1.resx">
+      <DependentUpon>202006182234441_DocumentToTopicEV1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006191014073_TopicEVToTopics.resx">
+      <DependentUpon>202006191014073_TopicEVToTopics.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

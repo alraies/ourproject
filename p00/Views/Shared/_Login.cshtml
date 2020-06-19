@@ -9,16 +9,23 @@
         var UserID = User.Identity.GetUserId();
         var CurrentUser = db.Users.Where(a => a.Id == UserID).SingleOrDefault();
         var CurrentTeacher = db.UserToTeachers.Where(a => a.UserID == UserID).SingleOrDefault();
-
+       
         //Secure from Hackers
-                   @Html.AntiForgeryToken()
+        @Html.AntiForgeryToken()
     <ul class="nav  navbar-nav navbar-right">
 
 
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                 <span class="glyphicon glyphicon-user"></span>
-                <strong>مرحبا بك يا: @CurrentUser.UserName</strong>
+                @if (CurrentTeacher != null)
+                {
+                    var teacher = db.Teachers.Find(CurrentTeacher.TeacherID);
+                    <strong>مرحبا بك يا: @teacher.FullName</strong>
+                }
+                else
+                {
+                    <strong>مرحبا بك يا: @CurrentUser.UserName</strong>}
                 <span class="glyphicon glyphicon-chevron-down"></span>
             </a>
             <ul class="dropdown-menu">
@@ -33,13 +40,20 @@
                             <div class="col-lg-8">
                                 <p class="text-right">
                                     <strong>
-                                        @CurrentUser.UserName
+                                        @if (CurrentTeacher != null)
+                                        {
+                                            var teacher = db.Teachers.Find(CurrentTeacher.TeacherID);
+                                             @teacher.FullName
+                                        }
+                                        else
+                                        {
+                                             @CurrentUser.UserName}
                                     </strong>
                                 </p>
                                 @if (CurrentTeacher!=null)
                                 {
                                      @*@if (CurrentUser.Id == CurrentTeacher.UserID) { }*@
-                            <a href="~/Teachers/Edit" class="btn btn-success btn-block">تعديل معلومات الحساب</a>
+                            <a href="~/Teachers/Edit"  class="btn btn-success btn-block">تعديل معلومات الحساب</a> 
 
 
                                 }

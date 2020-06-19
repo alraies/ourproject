@@ -62,12 +62,16 @@ namespace p00.Controllers
                     {
                         if (item2.SectionsID == item.SectionsID)
                         {
-                            foreach (var item3 in R3)
+                            foreach (var item3 in R3) 
+                            { 
                                 lasit.Add(new TopicEV {EvaluationFormId = item.EvaluationFormID, SectionsId = item.SectionsID, TopicsId = item2.TopicsID, TeacherId = item3.Id });
+                             db.TopicEVs.Add(new TopicEV { EvaluationFormId = item.EvaluationFormID, SectionsId = item.SectionsID, TopicsId = item2.TopicsID, TeacherId = item3.Id });
+                            }
                         }
                     }
                 }
             }
+            db.SaveChanges();
             return View(lasit);
         }
             [HttpPost]

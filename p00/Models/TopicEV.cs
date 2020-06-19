@@ -9,16 +9,17 @@ namespace p00.Models
     {
         public int Id { get; set; }
         public int EvaluationFormId { get; set; }
-      //  public EvaluationForm EvaluationForm { get; set; }
+        public virtual EvaluationForm EvaluationForm { get; set; }
         public int SectionsId { get; set; }
-      //  public Sections Sections { get; set; }
+        public virtual Sections Sections { get; set; }
         public  int TopicsId { get; set; }
-      //  public Topics Topics { get; set; }
+        public virtual Topics Topics { get; set; }
         public int TeacherId { get; set; }
-     //   public Teacher Teacher { get; set; }
+        public virtual Teacher Teacher { get; set; }
         public int Points { get; set; }
         public bool Approved { get; set; }
-     //  public virtual  Document Document { get; set; }
+        public string Nameproved{ get; set; }
+        public virtual  Document Document { get; set; }
 
     }
 }
