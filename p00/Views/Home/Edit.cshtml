@@ -1,0 +1,97 @@
+﻿@model p00.Models.TopicEV
+
+@{
+    ViewBag.Title = "تقيم";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>تقيم</h2>
+
+
+@using (Html.BeginForm("Edit", "Home", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>الفقره</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.EvaluationFormId)
+    @Html.HiddenFor(model => model.SectionsId)
+    @Html.HiddenFor(model => model.TopicsId)
+    @Html.HiddenFor(model => model.TeacherId)
+    <div class="form-group">
+        @Html.LabelFor(model => model.EvaluationFormId, "تاريخ الاستماره", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Model.EvaluationForm.year
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.SectionsId, "المحور", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Model.Sections.SectionName
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TopicsId, "الفقره", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Model.Topics.TopicName
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TeacherId, "اسم الاستاذ", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Model.Teacher.FullName
+        </div>
+    </div>
+    @if (Model.Document != null)
+    {
+
+        <div class="form-group">
+            @Html.Label("وثيقه", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <img src="~/Uploads/@Model.Document.Name" />
+            </div>
+        </div>
+    }
+    else
+    {
+        if (Model.Topics.ReqDoc == true)
+        {
+            <div class="form-group">
+                @Html.Label("وثيقه", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <h4>هذا الفقره تحتاج لوثيقه ولما يتم رفعه لايمكن التقيم  </h4>
+                </div>
+            </div>
+
+        }
+    }
+    <div class="form-group">
+        @Html.LabelFor(model => model.Points, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Points, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Points, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            @*@Html.ActionLink("موافقه", "Assent", new { id = true }, new { @class = "btn btn-default" })
+                @Html.ActionLink("رفض", "Assent", new { id = false }, new { @class = "btn btn-default" })*@
+            <input type="submit" value="موافقه" name="submitButton" class="btn btn-default" />
+            <input type="submit" value="رفض" name="submitButton" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div class="jumbotron">
+    @Html.ActionLink("Back to List", "Assent", new { @class = "btn btn-primary" })
+</div>

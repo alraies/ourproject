@@ -430,6 +430,9 @@
     <Content Include="Views\TopicEVs\Index.cshtml" />
     <Content Include="Views\Document\Create.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
+    <Content Include="Views\Home\Assent.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Home\DegreeOfAssessment.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

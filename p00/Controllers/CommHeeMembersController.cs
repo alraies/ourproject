@@ -41,6 +41,7 @@ namespace p00.Controllers
         public ActionResult Create()
         {
             ViewBag.CommHeeid = new SelectList(db.CommHees, "id", "AcdYea");
+          //  ViewBag.CommitHeesid = new SelectList(db.CommitHees, "id", "comitname");
             ViewBag.Teacherid = new SelectList(db.Teachers, "Id", "FullName");
             return View();
         }

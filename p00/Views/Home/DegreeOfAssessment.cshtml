@@ -1,0 +1,165 @@
+﻿@model IEnumerable<p00.Models.TopicEV>
+@using Microsoft.AspNet.Identity
+@using WebApplication2.Models;
+
+@{
+    ViewBag.Title = "DegreeOfAssessment";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h1>نتائج التقييم</h1>
+
+@if (Request.IsAuthenticated)
+{
+    var db = new ApplicationDbContext();
+    var UserID = User.Identity.GetUserId();
+    var CurrentUser = db.Users.Where(a => a.Id == UserID).SingleOrDefault();
+    var CurrentTeacher = db.UserToTeachers.Where(a => a.UserID == UserID).SingleOrDefault();
+    var Currentcommit = db.CommHeeMembers.Where(a => a.Teacherid == CurrentTeacher.TeacherID).SingleOrDefault();
+    var CurrentEaf = db.EvaluationForm.Where(a => a.iscurent == true).SingleOrDefault();
+    var CurrentEa = db.EvaluaationFormtoSections.Where(a => a.EvaluationFormID == CurrentEaf.id);
+    var last = CurrentEa.ToList();
+    int sum = 0;
+    int tot = 0;
+    double ave = 0;
+    bool b = true;
+    float f;
+    <h2>تاريخ تفعيل الاستماره @CurrentEaf.year</h2>
+
+    foreach (var item in last)
+    {
+       
+        <h2>محور @item.Sections.SectionName</h2>
+        <table class="table" border="1">
+            <tr>
+                <th>
+                    <h4>الفقره</h4>
+                </th>
+                <th>
+                    <h4>الدرجه القصوى</h4>
+                </th>
+                <th>
+                    <h4>الدرجه المعطاة</h4>
+                </th>
+            </tr>
+            @foreach (var item2 in Model)
+            {
+
+                if (item.SectionsID == item2.SectionsId && item2.TeacherId == CurrentTeacher.TeacherID)
+                {
+                    <tr>
+                        <td>
+                            @item2.Topics.TopicName
+                        </td>
+                        <td>
+                            @item2.Topics.TotalPoints
+                        </td>
+                        <td>
+                            @if (item2.Approved == true)
+                            {
+                                @item2.Points
+                            }
+                            else
+                            {
+                                <h4>لما تتتقيم بعد</h4>
+                            }
+
+                        </td>
+
+                    </tr>
+                }
+
+            }
+
+
+        </table>
+
+    }
+
+<table class="table" border="2">
+    <tr>
+        <th>
+            <h4>المحاور</h4>
+        </th>
+        <th>
+            <h4>الدرجه الحاصل عليها من المحور</h4>
+        </th>
+        <th>
+            <h4>وزن المحور</h4>
+        </th>
+        <th>
+            <h4>الدرجه حسب الوزن</h4>
+        </th>
+    </tr>
+    @foreach (var item in last)
+    {
+
+        sum = 0;
+        tot = 0;
+        b = true;
+        foreach (var item2 in Model)
+        {
+
+            if (item.SectionsID == item2.SectionsId && item2.TeacherId == CurrentTeacher.TeacherID)
+            {
+                if(item2.Approved == true)
+                {
+                    tot += item2.Topics.TotalPoints;
+                    sum += item2.Points;
+                }
+                else
+                {
+
+                    b = false;
+
+                }
+            }
+
+        }
+        <tr>
+            <th>
+                @item.Sections.SectionName
+            </th>
+            <th>
+                @if (b)
+                {
+                    @sum
+                }
+                else
+                {
+                    <h5>لم يكتمل تقيم المحور</h5>
+                }
+            </th>
+            <th>
+                @item.Sections.TotalPoints
+            </th>
+            <th>
+                @if (b)
+                {
+                    f = (sum * item.Sections.TotalPoints) /tot;
+                    ave +=f;
+                    @f
+                }
+                else
+                {
+                    <h5>لم يكتمل تقيم المحور</h5>
+                }
+            </th>
+        </tr>
+
+    }
+    <tr>
+        <td rowspan="2">
+            <h4>مجموع الدرجات النهائية للتقيم</h4>
+        </td>
+        <td colspan="3">
+            <h4>مجموع الدرجه رقما </h4>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="3">
+            @ave
+        </td>
+    </tr>
+</table>
+}
