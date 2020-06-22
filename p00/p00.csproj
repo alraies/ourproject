@@ -433,6 +433,10 @@
     <Content Include="Views\Home\Assent.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
     <Content Include="Views\Home\DegreeOfAssessment.cshtml" />
+    <Content Include="Views\Home\EditProfileTeachers.cshtml" />
+    <Content Include="Views\Home\CreateProfileTeachers.cshtml" />
+    <Content Include="Views\Home\TeachersLists.cshtml" />
+    <Content Include="Views\Home\ShowAssent.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

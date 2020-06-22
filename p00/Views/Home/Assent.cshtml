@@ -9,16 +9,17 @@
 
 <h2>اللجان</h2>
 @if (Request.IsAuthenticated)
-{
-    var db = new ApplicationDbContext();
-    var UserID = User.Identity.GetUserId();
-    var CurrentUser = db.Users.Where(a => a.Id == UserID).SingleOrDefault();
-    var CurrentTeacher = db.UserToTeachers.Where(a => a.UserID == UserID).SingleOrDefault();
-    var Currentcommit = db.CommHeeMembers.Where(a => a.Teacherid == CurrentTeacher.TeacherID).SingleOrDefault();
-    if (Currentcommit != null)
     {
-        var Currentcommit2 = db.CommHees.Where(a => a.id == Currentcommit.CommHeeid).SingleOrDefault();
-        var Currentcommit3 = db.CommitHees.Where(a => a.id == Currentcommit2.CommitHeesid).SingleOrDefault();
+        var db = new ApplicationDbContext();
+        var UserID = User.Identity.GetUserId();
+        var CurrentUser = db.Users.Where(a => a.Id == UserID).SingleOrDefault();
+        var CurrentTeacher = db.UserToTeachers.Where(a => a.UserID == UserID).SingleOrDefault();
+        var Currentcommit = db.CommHeeMembers.Where(a => a.Teacherid == CurrentTeacher.TeacherID).SingleOrDefault();
+        var Teacher = db.Teachers.ToList();
+        if (Currentcommit != null)
+        {
+            var Currentcommit2 = db.CommHees.Where(a => a.id == Currentcommit.CommHeeid).SingleOrDefault();
+            var Currentcommit3 = db.CommitHees.Where(a => a.id == Currentcommit2.CommitHeesid).SingleOrDefault();
         <div class="jumbotron">
             @*<h1>الحاسبات</h1>*@
             <h1>@Currentcommit3.comitname</h1>
@@ -27,34 +28,54 @@
         </div>
         /////////////////////////////////////
 
-        foreach (var item in Model)
+        foreach (var item in Teacher)
         {
             // var item3 = item.TopicEVs;
-            if (item.Topics.CommitHeesID == Currentcommit3.id&&item.Approved==false)
-            {
+           
 
            <div class="panel panel-info">
-               <div class="panel-heading"><h1>فقرة @Html.DisplayFor(modelItem => item.Topics.TopicName)</h1></div>
+               <div class="panel-heading"><h1>@Html.DisplayFor(modelItem => item.FullName)</h1></div>
 
+                
+               <div class="row panel-body">
+                  
+                   <h2>تقييم الفقرات</h2>
+                   @*////////////////////////////////////////////*@
+                   @foreach (var item2 in Model)
+                   {
+                       if (item2.Topics.CommitHeesID == Currentcommit3.id && item2.Approved == false && item2.TeacherId == item.Id)
+                       {
+               <div class="col-md-3 thumbnail" style="margin-left:20px; margin-bottom:30px; min-height:275px;">
+                   <h2>محور @Html.DisplayFor(modelItem => item2.Sections.SectionName)</h2>
+                   <h3>فقرة @Html.DisplayFor(modelItem => item2.Topics.TopicName)</h3>
+                   <h5>@Html.DisplayFor(modelItem => item2.Topics.Description)</h5>
+                   @if (item2.Topics.ReqDoc == true)
+                   {
+                       <h4>هذا الفقره تحتاج وثيقه</h4>
+                       if (item2.Document == null)
+                       {
+                           <h5>لم يتم رفع وثيقه من قبل @item.FullName</h5>
+                       }
+                       else
+                       {
+                           <h5>تم رفع الوثيقه من قبل @item.FullName</h5>
+                       }
+                   }
+                   else
+                   {
+                       <h4>لاتحتاج لوثيقه</h4>
+                   }
+                   @Html.ActionLink("تقيم", "Edit", new { id = item2.Id }, new { @class = "btn btn-primary" })
+               </div>
+                       }
 
-         <div class="row panel-body">
-                <h5>@Html.DisplayFor(modelItem => item.Topics.Description)</h5>
+                   }
 
-                @Html.ActionLink("تقيم", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
-        @*<h5>@Html.DisplayFor(modelItem => item)</h5>*@
-        @*@Html.ActionLink("تحميل الوثيقه", "Create", new { id = item.Id, new { @class = "btn btn-primary" })*@
-        @*@foreach (var subItem in item.TopicEVs)
-            {
-              <div class="col-md-3 thumbnail" style="margin-left:20px; margin-bottom:30px; min-height:380px;">
+                   @*///////////////////////////////*@
+               </div>
 
-              <h3>@Html.DisplayFor(modelItem => subItem.EvaluationFormId)</h3>
-             <h5>@Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => subItem.EvaluationFormId).ToString()))</h5>
-               @Html.ActionLink("التفاصيل", "Details", new { JobId = subItem.Id }, new { @class = "btn btn-primary" })
-              </div>
-             }*@
-    </div>
+</div>
 
-</div>}
 }
 
 

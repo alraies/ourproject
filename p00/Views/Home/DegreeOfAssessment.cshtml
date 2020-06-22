@@ -136,9 +136,12 @@
             <th>
                 @if (b)
                 {
+                    try { 
                     f = (sum * item.Sections.TotalPoints) /tot;
                     ave +=f;
                     @f
+                    }
+                    catch { }
                 }
                 else
                 {

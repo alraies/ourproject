@@ -140,6 +140,74 @@ namespace WebApplication2.Controllers
             var topicEVs = db.TopicEVs.Include(t => t.Document).Include(t => t.EvaluationForm).Include(t => t.Sections).Include(t => t.Teacher).Include(t => t.Topics);
             return View(topicEVs.ToList());
         }
+        public ActionResult EditProfileTeachers()
+        {
+            var UserID = User.Identity.GetUserId();
+            var CurrentUser = db.Users.Where(a => a.Id == UserID).SingleOrDefault();
+            var CurrentTeacher = db.UserToTeachers.Where(a => a.UserID == UserID).SingleOrDefault();
+            Teacher teacher = db.Teachers.Find(CurrentTeacher.TeacherID);
+            return View(teacher);
+        }
+
+        // POST: Teachers/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditProfileTeachers([Bind(Include = "Id,FullName,University,College,Department,Certificate,C_Date,C_Doner,GeneralSpecialization,Specialization,ScientificTitle,ST_Date,ST_Doner,Email,Phone")] Teacher teacher)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(teacher).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(teacher);
+        }
+
+        // GET: Teachers/Create
+        public ActionResult CreateProfileTeachers()
+        {
+            return View();
+        }
+
+        // POST: Teachers/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult CreateProfileTeachers([Bind(Include = "Id,FullName,University,College,Department,Certificate,C_Date,C_Doner,GeneralSpecialization,Specialization,ScientificTitle,ST_Date,ST_Doner,Email,Phone")] Teacher teacher)
+        {
+            var UserID = User.Identity.GetUserId();
+            var CurrentUser = db.Users.Where(a => a.Id == UserID).SingleOrDefault();
+            if (ModelState.IsValid)
+            {
+                db.Teachers.Add(teacher);
+                db.UserToTeachers.Add(new UserToTeacher { UserID = CurrentUser.Id, TeacherID = teacher.Id });
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(teacher);
+        }
+
+        public ActionResult TeachersLists()
+        {
+            return View(db.Teachers.ToList());
+        }
+        public ActionResult ShowAssent(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Teacher teacher = db.Teachers.Find(id);
+            if (teacher == null)
+            {
+                return HttpNotFound();
+            }
+            return View(teacher);
+        }
 
     }
 }

@@ -43,24 +43,22 @@
                                         @if (CurrentTeacher != null)
                                         {
                                             var teacher = db.Teachers.Find(CurrentTeacher.TeacherID);
-                                             @teacher.FullName
+                                            @teacher.FullName
                                         }
                                         else
                                         {
-                                             @CurrentUser.UserName}
+                                            @CurrentUser.UserName}
                                     </strong>
                                 </p>
-                                @if (CurrentTeacher!=null)
+                                @if (CurrentTeacher != null)
                                 {
-                                     @*@if (CurrentUser.Id == CurrentTeacher.UserID) { }*@
-                            <a href="~/Teachers/Edit"  class="btn btn-success btn-block">تعديل معلومات الحساب</a> 
-
-
+                                    @*@if (CurrentUser.Id == CurrentTeacher.UserID) { }*@
+                                    <a href="~/Home/EditProfileTeachers"  class="btn btn-success btn-block">تعديل معلومات الحساب</a>
                                 }
                                 else
                                 {
-                            <a href="~/Teachers/Create" class="btn btn-success btn-block">اضافة معلومات حسابك</a>
-                        }
+                                    <a href="~/Home/CreateProfileTeachers" class="btn btn-success btn-block">اضافة معلومات حسابك</a>
+                                }
                                 <a href="~/Account/EditProfile" class="btn btn-primary btn-block">تعديل الحساب</a>
                             </div>
                         </div>
