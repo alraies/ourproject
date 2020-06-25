@@ -31,8 +31,11 @@
         foreach (var item in Teacher)
         {
             // var item3 = item.TopicEVs;
-           
 
+            if(item.Id!= CurrentTeacher.TeacherID)
+            {
+
+           
            <div class="panel panel-info">
                <div class="panel-heading"><h1>@Html.DisplayFor(modelItem => item.FullName)</h1></div>
 
@@ -43,6 +46,7 @@
                    @*////////////////////////////////////////////*@
                    @foreach (var item2 in Model)
                    {
+                       var document = db.Documents.Where(a => a.TopicEVId == item2.Id);
                        if (item2.Topics.CommitHeesID == Currentcommit3.id && item2.Approved == false && item2.TeacherId == item.Id)
                        {
                <div class="col-md-3 thumbnail" style="margin-left:20px; margin-bottom:30px; min-height:275px;">
@@ -52,7 +56,7 @@
                    @if (item2.Topics.ReqDoc == true)
                    {
                        <h4>هذا الفقره تحتاج وثيقه</h4>
-                       if (item2.Document == null)
+                       if (document.Count()<=0)
                        {
                            <h5>لم يتم رفع وثيقه من قبل @item.FullName</h5>
                        }
@@ -75,12 +79,12 @@
                </div>
 
 </div>
+            }
+        }
 
-}
 
 
+        ///////////////////////////////////////
 
-///////////////////////////////////////
-
-}
+    }
 }

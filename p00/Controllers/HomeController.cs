@@ -19,8 +19,9 @@ namespace WebApplication2.Controllers
             private ApplicationDbContext db = new ApplicationDbContext();
             public ActionResult Index()
             {
-                var topicEVs = db.TopicEVs.Include(t => t.Document).Include(t => t.EvaluationForm).Include(t => t.Sections).Include(t => t.Teacher).Include(t => t.Topics);
-                return View(topicEVs.ToList());
+            var topicEVs = db.TopicEVs.Include(t => t.Document).Include(t => t.EvaluationForm).Include(t => t.Sections).Include(t => t.Teacher).Include(t => t.Topics);
+            return View(topicEVs.ToList());
+           
             }
 
             public ActionResult About()
@@ -44,30 +45,31 @@ namespace WebApplication2.Controllers
 
             // POST: Document/Create
             [HttpPost]
-            public ActionResult Create(int id, HttpPostedFileBase upload)
+            public ActionResult Create(int id,List<HttpPostedFileBase> uploads)
             {
 
-                // TODO: Add insert logic here
-                //if (id != null)
-                //{
-
-
-                db.Documents.Add(new Document { Id = id, Name = upload.FileName });
-                db.SaveChanges();
-                string path = Path.Combine(Server.MapPath("~/Uploads"), upload.FileName);
+            // TODO: Add insert logic here
+            if (uploads!= null)
+            {
+                foreach(var upload in uploads)
+                {
+                    db.Documents.Add(new Document {TopicEVId = id, Name = upload.FileName });
+                    string path = Path.Combine(Server.MapPath("~/Uploads"), upload.FileName);
                 upload.SaveAs(path);
-                //}
-                //else
-                //    return HttpNotFound();
+                }
+                db.SaveChanges();
+            }
+            else
+                return HttpNotFound();
 
-                return RedirectToAction("Index");
+            return RedirectToAction("Index");
 
             }
 
             public ActionResult Assent()
             {
-                var topicEVs = db.TopicEVs.Include(t => t.Document).Include(t => t.EvaluationForm).Include(t => t.Sections).Include(t => t.Teacher).Include(t => t.Topics);
-                return View(topicEVs.ToList());
+            var topicEVs = db.TopicEVs.Include(t => t.Document).Include(t => t.EvaluationForm).Include(t => t.Sections).Include(t => t.Teacher).Include(t => t.Topics);
+            return View(topicEVs.ToList());
             }
             [HttpPost]
             public ActionResult Assent(int id)
@@ -195,6 +197,12 @@ namespace WebApplication2.Controllers
         {
             return View(db.Teachers.ToList());
         }
+        [HttpPost]
+        public ActionResult TeachersLists(string searchName)
+        {
+            var teachers = db.Teachers.Where(a => a.FullName.Contains(searchName)).ToList();
+            return View(teachers);
+        }
         public ActionResult ShowAssent(int? id)
         {
             if (id == null)
@@ -208,6 +216,47 @@ namespace WebApplication2.Controllers
             }
             return View(teacher);
         }
+
+        //Get Topico of tecahers Edit
+        public ActionResult DocumentsofTopic()
+        {
+            var topicEVs = db.TopicEVs.Include(t => t.Document).Include(t => t.EvaluationForm).Include(t => t.Sections).Include(t => t.Teacher).Include(t => t.Topics);
+            return View(topicEVs.ToList());
+        }
+        //Documentoftopic
+        public ActionResult EditDocumentOfTopic(int id)
+        {
+            var topicEV = db.TopicEVs.Find(id);
+            return View(topicEV);
+        }
+        //EditDocumentoftopic
+        public ActionResult EditDocumentOf(int id)
+        {
+            var document = db.Documents.Find(id);
+            return View(document);
+        }
+
+        [HttpPost]
+        public ActionResult EditDocumentOf([Bind(Include = "IdDocument,Name,TopicEVId")] Document document,HttpPostedFileBase uploads)
+        {
+
+            // TODO: Add insert logic here
+            if (ModelState.IsValid)
+            {
+                 document.Name = uploads.FileName;
+                db.Entry(document).State = EntityState.Modified;
+                string path = Path.Combine(Server.MapPath("~/Uploads"), uploads.FileName);
+                    uploads.SaveAs(path);
+               
+                db.SaveChanges();
+            }
+            else
+                return HttpNotFound();
+
+            return RedirectToAction("EditDocumentOfTopic");
+
+        }
+
 
     }
 }

@@ -268,6 +268,26 @@
     <Compile Include="Migrations\202006191014073_TopicEVToTopics.Designer.cs">
       <DependentUpon>202006191014073_TopicEVToTopics.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006241232569_addPrmaryKeyinTableDucment.cs" />
+    <Compile Include="Migrations\202006241232569_addPrmaryKeyinTableDucment.Designer.cs">
+      <DependentUpon>202006241232569_addPrmaryKeyinTableDucment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006241416315_addPrmaryKeyinTableDucment1.cs" />
+    <Compile Include="Migrations\202006241416315_addPrmaryKeyinTableDucment1.Designer.cs">
+      <DependentUpon>202006241416315_addPrmaryKeyinTableDucment1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006241537041_deleletPrmaryKeyinTableDucment.cs" />
+    <Compile Include="Migrations\202006241537041_deleletPrmaryKeyinTableDucment.Designer.cs">
+      <DependentUpon>202006241537041_deleletPrmaryKeyinTableDucment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006241600224_TopicEVTOdocumnt.cs" />
+    <Compile Include="Migrations\202006241600224_TopicEVTOdocumnt.Designer.cs">
+      <DependentUpon>202006241600224_TopicEVTOdocumnt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006241602348_TopicEVTOdocumnt1.cs" />
+    <Compile Include="Migrations\202006241602348_TopicEVTOdocumnt1.Designer.cs">
+      <DependentUpon>202006241602348_TopicEVTOdocumnt1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckSectionsViewModel.cs" />
@@ -428,7 +448,6 @@
     <Content Include="Views\TopicEVs\Details.cshtml" />
     <Content Include="Views\TopicEVs\Edit.cshtml" />
     <Content Include="Views\TopicEVs\Index.cshtml" />
-    <Content Include="Views\Document\Create.cshtml" />
     <Content Include="Views\Home\Create.cshtml" />
     <Content Include="Views\Home\Assent.cshtml" />
     <Content Include="Views\Home\Edit.cshtml" />
@@ -437,6 +456,10 @@
     <Content Include="Views\Home\CreateProfileTeachers.cshtml" />
     <Content Include="Views\Home\TeachersLists.cshtml" />
     <Content Include="Views\Home\ShowAssent.cshtml" />
+    <Content Include="Views\Document\Create.cshtml" />
+    <Content Include="Views\Home\DocumentsofTopic.cshtml" />
+    <Content Include="Views\Home\EditDocumentOfTopic.cshtml" />
+    <Content Include="Views\Home\EditDocumentOf.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -512,6 +535,21 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006191014073_TopicEVToTopics.resx">
       <DependentUpon>202006191014073_TopicEVToTopics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006241232569_addPrmaryKeyinTableDucment.resx">
+      <DependentUpon>202006241232569_addPrmaryKeyinTableDucment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006241416315_addPrmaryKeyinTableDucment1.resx">
+      <DependentUpon>202006241416315_addPrmaryKeyinTableDucment1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006241537041_deleletPrmaryKeyinTableDucment.resx">
+      <DependentUpon>202006241537041_deleletPrmaryKeyinTableDucment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006241600224_TopicEVTOdocumnt.resx">
+      <DependentUpon>202006241600224_TopicEVTOdocumnt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006241602348_TopicEVTOdocumnt1.resx">
+      <DependentUpon>202006241602348_TopicEVTOdocumnt1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

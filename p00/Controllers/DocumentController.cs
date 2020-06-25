@@ -5,12 +5,14 @@ using System.Web;
 using System.Web.Mvc;
 using System.IO;
 using p00.Models;
+using WebApplication2.Models;
 
 namespace p00.Controllers
 {
     public class DocumentController : Controller
     {
         // GET: Document
+        private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
             return View();
@@ -32,18 +34,22 @@ namespace p00.Controllers
         [HttpPost]
         public ActionResult Create(HttpPostedFileBase upload)
         {
-            try
-            {
-                // TODO: Add insert logic here
-
+            //try
+            //{
+            // TODO: Add insert logic here
+            //  document.Name = upload.FileName;
+                //  document.Id = 1;
                 string path = Path.Combine(Server.MapPath("~/Uploads"), upload.FileName);
                 upload.SaveAs(path);
-                return RedirectToAction("/Home/Index");
-            }
-            catch
-            {
+                db.Documents.Add(new Document {Name=upload.FileName });
+                db.SaveChanges();
+                //  return RedirectToAction("/Home/Index");
                 return View();
-            }
+            //}
+            //catch
+            //{
+            //    return View();
+            //}
         }
 
         // GET: Document/Edit/5

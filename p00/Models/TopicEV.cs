@@ -19,7 +19,8 @@ namespace p00.Models
         public int Points { get; set; }
         public bool Approved { get; set; }
         public string Nameproved{ get; set; }
-        public virtual  Document Document { get; set; }
+        //public virtual Document Document { get; set; }
+        public virtual ICollection<Document> Document { get; set; }
 
     }
 }

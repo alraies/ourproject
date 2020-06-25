@@ -17,18 +17,21 @@
     var UserID = User.Identity.GetUserId();
     var CurrentUser = db.Users.Where(a => a.Id == UserID).SingleOrDefault();
     var CurrentTeacher = db.UserToTeachers.Where(a => a.UserID == UserID).SingleOrDefault();
-    if (CurrentTeacher != null) { 
-    foreach (var item in Model)
+    if (CurrentTeacher != null) 
     {
-        // var item3 = item.TopicEVs;
-        if (item.Topics.ReqDoc == true && item.Document == null&&item.TeacherId== CurrentTeacher.TeacherID)
+        foreach (var item in Model)
         {
+            var document = db.Documents.Where(a => a.TopicEVId ==item.Id);
 
-<div class="panel panel-info">
-    <div class="panel-heading"><h1>فقرة @Html.DisplayFor(modelItem => item.Topics.TopicName)</h1></div>
+            // var item3 = item.TopicEVs;  && item.Document == null
+            if (item.Topics.ReqDoc == true&& document.Count() <=0 && item.TeacherId== CurrentTeacher.TeacherID)
+            {
+
+                <div class="panel panel-info">
+                  <div class="panel-heading"><h1>فقرة @Html.DisplayFor(modelItem => item.Topics.TopicName)</h1></div>
 
 
-    <div class="row panel-body">
+         <div class="row panel-body">
         <h5>@Html.DisplayFor(modelItem => item.Topics.Description)</h5>
 
         @Html.ActionLink("تحميل الوثيقه", "Create", new { id = item.Id }, new { @class = "btn btn-primary" })
@@ -43,9 +46,10 @@
                @Html.ActionLink("التفاصيل", "Details", new { JobId = subItem.Id }, new { @class = "btn btn-primary" })
               </div>
              }*@
-    </div>
+        </div>
 
-</div>}
+                </div>  
+            }
         }
     }
 }

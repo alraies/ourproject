@@ -1,0 +1,76 @@
+﻿@model p00.Models.TopicEV
+@using Microsoft.AspNet.Identity
+@using WebApplication2.Models;
+
+@{
+    ViewBag.Title = "EditDocumentOfTopic";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h1>الوثائق المرفوعه</h1>
+@if (Request.IsAuthenticated)
+{
+    var db = new ApplicationDbContext();
+    var document = db.Documents.Where(a => a.TopicEVId == Model.Id);
+    <div>
+        <h3>تعديل عل وثائق الفقره</h3>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayName("تاريخ الاستماره:")
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EvaluationForm.year)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Sections.SectionName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Sections.SectionName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Sections.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Sections.Description)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Topics.TopicName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Topics.TopicName)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Topics.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Topics.Description)
+            </dd>
+        </dl>
+    </div>
+
+    foreach (var itme in document)
+    {
+        <div class="panel">
+            
+            <img src="~/Uploads/@itme.Name" width="600" height="1050"/>
+                 <div class="row panel-body">
+                  @Html.ActionLink("تحميل الوثيقه", "EditDocumentOf", new { id =itme.IdDocument }, new { @class = "btn btn-primary" })
+                 </div>
+        </div>
+       
+    }
+
+}
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

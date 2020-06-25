@@ -557,5 +557,10 @@ C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migra
 C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.EvaluationToTopicEV3.resources
 C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.DocumentToTopicEV.resources
 C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.DocumentToTopicEV1.resources
-C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.csprojAssemblyReference.cache
 C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.TopicEVToTopics.resources
+C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.csprojAssemblyReference.cache
+C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.addPrmaryKeyinTableDucment.resources
+C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.addPrmaryKeyinTableDucment1.resources
+C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.deleletPrmaryKeyinTableDucment.resources
+C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.TopicEVTOdocumnt.resources
+C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.TopicEVTOdocumnt1.resources
