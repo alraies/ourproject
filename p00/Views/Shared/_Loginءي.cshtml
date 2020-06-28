@@ -1,0 +1,119 @@
+﻿@using Microsoft.AspNet.Identity
+@using WebApplication2.Models;
+@if (Request.IsAuthenticated)
+{
+    //LogOff button
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "LogOff" }))
+    {
+        var db = new ApplicationDbContext();
+        var UserID = User.Identity.GetUserId();
+        var CurrentUser = db.Users.Where(a => a.Id == UserID).SingleOrDefault();
+        var CurrentTeacher = db.UserToTeachers.Where(a => a.UserID == UserID).SingleOrDefault();
+        var notification = db.Notifications.Where(a => a.RecipientID == CurrentTeacher.TeacherID);
+
+        //Secure from Hackers
+        @Html.AntiForgeryToken()
+    <ul class="nav  navbar-nav navbar-right">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-bell">
+                    @*@if (notification.Count() > 0)
+                    {
+                        <span class="badge">@notification.Count()</span>
+                    }*@
+                </span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <div class="row">
+                         <div class="col-lg-4">
+                             <p>holle</p>
+                         </div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-user"></span>
+                @if (CurrentTeacher != null)
+                {
+                    var teacher = db.Teachers.Find(CurrentTeacher.TeacherID);
+                    <strong>مرحبا بك يا: @teacher.FullName</strong>
+                }
+                else
+                {
+                    <strong>مرحبا بك يا: @CurrentUser.UserName</strong>}
+                <span class="glyphicon glyphicon-chevron-down"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <div class="navbar-user">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <p class="text-center">
+                                    <span class="glyphicon glyphicon-user img-size"></span>
+                                </p>
+                            </div>
+                            <div class="col-lg-8">
+                                <p class="text-right">
+                                    <strong>
+                                        @if (CurrentTeacher != null)
+                                        {
+                                            var teacher = db.Teachers.Find(CurrentTeacher.TeacherID);
+                                            @teacher.FullName
+                                        }
+                                        else
+                                        {
+                                            @CurrentUser.UserName}
+                                    </strong>
+                                </p>
+                                @if (CurrentTeacher != null)
+                                {
+                                    @*@if (CurrentUser.Id == CurrentTeacher.UserID) { }*@
+                                    <a href="~/Home/EditProfileTeachers" class="btn btn-success btn-block">تعديل معلومات الحساب</a>
+                                }
+                                else 
+                                {
+                                    <a href="~/Home/CreateProfileTeachers" class="btn btn-success btn-block">اضافة معلومات حسابك</a>
+                                }
+                                <a href="~/Account/EditProfile" class="btn btn-primary btn-block">تعديل الحساب</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <p>
+                                    <a href="javascript:document.getElementById('LogOff').submit()" class="btn btn-danger btn-block">تسجيل الخروج</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </li>
+
+
+        @*<li>
+            @Html.ActionLink("مرحباً ! " + User.Identity.GetUserName(), "Index", "Manage")
+        </li>
+        <li>
+            <a href="javascript:document.getElementById('LogOff').submit()">تسجيل الخروج</a>
+        </li>*@
+    </ul> 
+                    }
+  }
+                                else
+                                {
+                    <a href="~/Account/Login">
+                        <i class="glyphicon glyphicon-user"></i>
+                        دخول
+                    </a>}
+
+
+
+

@@ -11,8 +11,10 @@ using p00.Models;
 
 namespace p00.Controllers
 {
+    [Authorize]
     public class SectionsController : Controller
     {
+        
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Sections

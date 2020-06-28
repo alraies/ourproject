@@ -9,6 +9,7 @@ using WebApplication2.Models;
 
 namespace p00.Controllers
 {
+    [Authorize]
     public class DocumentController : Controller
     {
         // GET: Document

@@ -4,73 +4,197 @@
 
 
 
-@{ ViewBag.Title = "Home Page"; }
+@{ ViewBag.Title = "الرئيسية"; }
 
-<div class="jumbotron">
-    <h1>الحاسبات</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
-@if (Request.IsAuthenticated)
+@if (User.IsInRole("استاذ"))
 {
-    var db = new ApplicationDbContext();
-    var UserID = User.Identity.GetUserId();
-    var CurrentUser = db.Users.Where(a => a.Id == UserID).SingleOrDefault();
-    var CurrentTeacher = db.UserToTeachers.Where(a => a.UserID == UserID).SingleOrDefault();
-    if (CurrentTeacher != null) 
-    {
-        foreach (var item in Model)
-        {
-            var document = db.Documents.Where(a => a.TopicEVId ==item.Id);
+    <!-- Main content -->
+    <section class="content">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h4>ادخال المعلومات</h4>
+                        <p>جميع المعلومات المطلوبة</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                    <a href="Home/CreateProfileTeachers" class="small-box-footer">اضافة <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h4>تفعيل الحساب<h4>
+                        <p>تفعيل الحساب للدخول ضمن عملة التقييم</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="~/EvaluationForms" class="small-box-footer">تفعيل <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h4>رفع الوثائق <h4>
+                        <p>رفع الوثائق المطلوبة لعملية التقييم</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="~/Home/DocumentsofTopic" class="small-box-footer"> رفع <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <h4>نتيجة التقييم<h4>
+                        <p>يتم ارسال رسالة نصية على الاميل عند موعد ظهور النتيجة</p>
+                    </div>
+                    <div class="icon">
+                        <ion-icon name="ribbon-outline"></ion-icon>
 
-            // var item3 = item.TopicEVs;  && item.Document == null
-            if (item.Topics.ReqDoc == true&& document.Count() <=0 && item.TeacherId== CurrentTeacher.TeacherID)
-            {
-
-                <div class="panel panel-info">
-                  <div class="panel-heading"><h1>فقرة @Html.DisplayFor(modelItem => item.Topics.TopicName)</h1></div>
-
-
-         <div class="row panel-body">
-        <h5>@Html.DisplayFor(modelItem => item.Topics.Description)</h5>
-
-        @Html.ActionLink("تحميل الوثيقه", "Create", new { id = item.Id }, new { @class = "btn btn-primary" })
-        @*<h5>@Html.DisplayFor(modelItem => item)</h5>*@
-        @*@Html.ActionLink("تحميل الوثيقه", "Create", new { id = item.Id, new { @class = "btn btn-primary" })*@
-        @*@foreach (var subItem in item.TopicEVs)
-            {
-              <div class="col-md-3 thumbnail" style="margin-left:20px; margin-bottom:30px; min-height:380px;">
-
-              <h3>@Html.DisplayFor(modelItem => subItem.EvaluationFormId)</h3>
-             <h5>@Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => subItem.EvaluationFormId).ToString()))</h5>
-               @Html.ActionLink("التفاصيل", "Details", new { JobId = subItem.Id }, new { @class = "btn btn-primary" })
-              </div>
-             }*@
-        </div>
-
-                </div>  
-            }
-        }
-    }
+                    </div>
+                    <a href="~/Home/ShowAssent" class="small-box-footer">اظهار <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+        </div><!-- /.row -->
+        <!-- Main row -->
+    </section>
 }
-    @*<div class="row">
-                        <div class="col-md-4">
-                            <h2>Getting started</h2>
-                            <p>
-                                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-                                enables a clean separation of concerns and gives you full control over markup
-                                for enjoyable, agile development.
-                            </p>
-                            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-                        </div>
-                        <div class="col-md-4">
-                            <h2>Get more libraries</h2>
-                            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-                            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-                        </div>
-                        <div class="col-md-4">
-                            <h2>Web Hosting</h2>
-                            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-                            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-                        </div>
-                    </div>*@
+@if (User.IsInRole("لجنة"))
+{
+    <!-- Main content -->
+    <section class="content">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h4>ادخال المعلومات<h4>
+                        <p>جميع المعلومات المطلوبة</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                    <a href="~/Home/CreateProfileTeachers" class="small-box-footer">اضافة <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h4>تقييم استاذ<h4>
+                        <p>تقييم المحور الخاص في اللجنة المنتمي اليها</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-stats-bars"></i>
+                    </div>
+                    <a href="~/EvaluationForms" class="small-box-footer">تقييم <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h4>رفع الوثائق <h4>
+                        <p>رفع الوثائق المطلوبة لعملية التقييم</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="~/Home/DocumentsofTopic" class="small-box-footer"> رفع <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <h4>نتيجة التقييم<h4>
+                        <p>يتم ارسال رسالة نصية على الاميل عند موعد ظهور النتيجة</p>
+                    </div>
+                    <div class="icon">
+                        <ion-icon name="ribbon-outline"></ion-icon>
+
+                    </div>
+                    <a href="~/Home/ShowAssent" class="small-box-footer">اظهار <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+        </div><!-- /.row -->
+        <!-- Main row -->
+    </section>
+}
+@if (User.IsInRole("admin"))
+{
+    <!-- Main content -->
+    <section class="content">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-aqua">
+                    <div class="inner">
+                        <h4>ادخال المعلومات<h4>
+                        <p>جميع المعلومات المطلوبة</p>
+                    </div>
+                    <div class="icon">
+                        <ion-icon name="add-outline"></ion-icon>
+
+                    </div>
+                    <a href="Home/CreateProfileTeachers" class="small-box-footer">اضافة <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h4>تفعيل الحساب<h4>
+                        <p>تفعيل الحساب للدخول ضمن عملة التقييم</p>
+                    </div>
+                    <div class="icon">
+                        <ion-icon name="checkmark-outline"></ion-icon>
+
+                    </div>
+                    <a href="~/EvaluationForms" class="small-box-footer">تفعيل <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h4>رفع الوثائق <h4>
+                        <p>رفع الوثائق المطلوبة لعملية التقييم</p>
+                    </div>
+                    <div class="icon">
+                        <ion-icon name="document-outline"></ion-icon>
+                    </div>
+                    <a href="~/Home/DocumentsofTopic" class="small-box-footer"> رفع <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <h4>انشاء حساب<h4>
+                        <p>انشاء حسابات للجان والاساتذة</p>
+                    </div>
+                    <div class="icon">
+                        <ion-icon name="ribbon-outline"></ion-icon>
+
+                    </div>
+                    <a href="~/Account/Register" class="small-box-footer">انشاء <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+        </div><!-- /.row -->
+        <!-- Main row -->
+    </section>
+}
+

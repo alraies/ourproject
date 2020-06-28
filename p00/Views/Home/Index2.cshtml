@@ -1,0 +1,82 @@
+﻿@model IEnumerable<p00.Models.TopicEV>
+@using Microsoft.AspNet.Identity
+@using WebApplication2.Models;
+
+
+
+@{ ViewBag.Title = "الرئيسية"; }
+@if (User.IsInRole("استاذ"))
+{
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <!-- Small boxes (Stat box) -->
+            <div class="row">
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-info">
+                        <div class="inner">
+                            <h3>ادخال المعلومات</h3>
+
+                            <p>جميع المعلومات المطلوبة</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-person-add"></i>
+                        </div>
+                        <a href="Home/CreateProfileTeachers" class="small-box-footer">اضافة <i class="fas fa-arrow-circle-left"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-success">
+                        <div class="inner">
+                            <h3>الدخول ضمن الية التقييم</h3>
+
+                            <p>تفعيل الحساب</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion fa-question-circle"></i>
+                        </div>
+                        <a href="EvaluationForms" class="small-box-footer">تفعيل <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-warning">
+                        <div class="inner">
+                            <h3>رفع الوثائق</h3>
+
+                            <p>رفع الوثائق المطلوبة لعملية التقييم</p>
+                        </div>
+                        <div class="icon">
+                            <i class="glyphicon-camera"></i>
+                        </div>
+                        <a href="Home/DocumentsofTopic" class="small-box-footer">رفع <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+                <div class="col-lg-3 col-6">
+                    <!-- small box -->
+                    <div class="small-box bg-danger">
+                        <div class="inner">
+                            <h3>نتيجة التقييم</h3>
+
+                            <p>تظهر النتائج عند انتهاء اللجان المختصة من عملية التقييم</p>
+                        </div>
+                        <div class="icon">
+                            <i class="ion ion-pie-graph"></i>
+                        </div>
+                        <a href="#" class="small-box-footer">اضهار <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
+                </div>
+                <!-- ./col -->
+            </div>
+            <!-- /.row -->
+           
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+
+}
