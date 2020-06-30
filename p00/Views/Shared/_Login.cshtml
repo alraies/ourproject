@@ -14,86 +14,106 @@
         //Secure from Hackers
         @Html.AntiForgeryToken()
         <!-- User Account: style can be found in dropdown.less -->
-        <div class="dropdown user user-menu">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+       <div class="container">
+           <div class="row">
+               <div class="dropdown user user-menu" style="float:right">
+                 
+                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
 
-                <span class="hidden-xs">
-                    @if (CurrentTeacher != null)
-                    {
-                        var teacher = db.Teachers.Find(CurrentTeacher.TeacherID);
-                    <h4> <strong>مرحبا بك يا: @teacher.FullName</strong></h4>
-                    }
-                    else
-                    {
-                       <h4 style="color:aliceblue"><strong>مرحبا بك يا: @CurrentUser.UserName</strong></h4>
-                       }
-                </span>
-            </a>
-            <ul class="dropdown-menu">
-                <!-- User image -->
-                <li class="user-header" style="background-color:aliceblue">
 
-                    <p>
-                        <strong>
-                            @if (CurrentTeacher != null)
-                            {
-                                var teacher = db.Teachers.Find(CurrentTeacher.TeacherID);
-                                @teacher.FullName
-                            }
-                            else
-                            {
-                                @CurrentUser.UserName}
-                        </strong>
-                        <small>تأكد من ان معلوماتك كاملة</small>
-                    </p>
-                </li>
-                <!-- Menu Body -->
-                <li class="user-body">
-                    @if (CurrentTeacher != null)
-                    {
-                        @*@if (CurrentUser.Id == CurrentTeacher.UserID) { }*@
+                       <span class="hidden-xs">
+                           @if (CurrentTeacher != null)
+                           {
+                               var teacher = db.Teachers.Find(CurrentTeacher.TeacherID);
 
-                        <div class="box-body">
 
-                            <a href="~/Home/EditProfileTeachers" class="btn btn-app">
-                                <i class="fa fa-edit"></i> تعديل معلومات الاستاذ
-                            </a>
+                           <div class="pull-left info">
+                               <p style="color:#F5C538"><strong>   مرحباً بك يا .. @teacher.FullName </strong></p>
+                             
+                           </div>
+                           }
+                           else
+                           {
+                       <div class="pull-left info">
+                           <strong style="color:#F5C538">   مرحباً بك يا .. @CurrentUser.UserName</strong>
+                        
+                       </div>
+                           }
+                       </span>
+                   </a>
+                   <ul class="dropdown-menu">
+                       <!-- User image -->
+                       <li style="height:175px;padding:10px;text-align:center; background-color: #102E5E;">
 
-                        </div>
+                           <img src="~/Content/dashboardRTL/dist/img/img_avatar.png" style="vertical-align:middle" class="img-circle" alt="User Image">
+                           <p>
+                               <b href="#" style="color:#F5C538">
+                                   مرحباً بك يا ..
+                                   @if (CurrentTeacher != null)
+                                   {
+                                       var teacher1 = db.Teachers.Find(CurrentTeacher.TeacherID);
+                                       @teacher1.FullName
+                                   }
 
-                    }
-                    else
-                    {
-                        <div class="box-body">
-
-                            <a href="~/Home/CreateProfileTeachers" class="btn btn-file">
-                                <i class="fa fa-edit"></i> >اضافة معلومات الاستاذ
-                            </a>
-
-                        </div>
-
-                    }
-                    <div class="box-body">
-
-                        <a href="~/Account/EditProfile" class="btn btn-app">
-                            <i class="fa fa-edit"></i> >تعديل الحساب
-                        </a>
-
-                    </div>
+                               </b>
 
 
 
-                </li>
-                <!-- Menu Footer-->
-                <li class="user-footer">
+                           </p>
+                       </li>
+                       <!-- Menu Body -->
+                       <div class="text-center">
 
-                    <div class="pull-right">
-                        <a href="javascript:document.getElementById('LogOff').submit()" class="btn btn-default btn-danger">تسجيل الخروج</a>
-                    </div>
-                </li>
-            </ul>
-        </div>
+
+
+
+                           @if (CurrentTeacher != null)
+                           {
+                               @*@if (CurrentUser.Id == CurrentTeacher.UserID) { }*@
+
+                               <li class="user-body">
+                                   <div class=" text-center">
+                                       <a href="~/Home/EditProfileTeachers" class="btn btn-primary btn-block" role="button">معلومات الاستاذ</a>
+                                   </div>
+
+                               </li>
+                           }
+
+                           else
+                           { <li class="user-body">
+                                   <div class="text-center">
+
+                                       <a href="~/Home/EditProfileTeachers" class="btn btn-primary btn-block" role="button">اضافة معلومات الاستاذ</a>
+                                   </div>
+
+
+                             </li>
+                           }
+                           <li class="user-body">
+                               <div class="text-md-center">
+
+                                   <a href="~/Home/EditProfileTeachers" class="btn btn-primary btn-block" role="button">تعديل الحساب</a>
+                               </div>
+                           </li>
+
+
+
+                           <!-- Menu Footer-->
+                           <li class="user-footer">
+
+                               <div style="text-align:center">
+                                   <a href="javascript:document.getElementById('LogOff').submit()" class="btn btn-danger btn-block"><b>تسجيل الخروج</b></a>
+                               </div>
+
+                           </li>
+                       </div>
+                   </ul>
+               </div>
+           </div>
+       </div>
+      
     }
+
 }
 else
 {

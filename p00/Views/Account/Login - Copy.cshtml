@@ -1,0 +1,57 @@
+﻿@using WebApplication2.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+@using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+   @Html.AntiForgeryToken()
+    <section class="login-page">
+        <div class="login-box">
+            <div class="login-logo">
+                <a href="../../index2.html"><b> تسجيل</b><br />الدخول</a>
+            </div><!-- /.login-logo -->
+            <div class="login-box-body">
+                <p class="login-box-msg">سجل الدخول ليمكنك تصفح الموقع</p>
+                <form action="../../index2.html" method="post">
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group has-feedback">
+                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-8">
+                            <div class="checkbox icheck">
+                                <label>
+                                    @Html.CheckBoxFor(m => m.RememberMe)
+                                    تذكرني..
+                                </label>
+                            </div>
+                        </div><!-- /.col -->
+                        <div class="col-xs-4">
+                            <button type="submit" class="btn btn-primary btn-block btn-flat">دخول</button>
+                        </div><!-- /.col -->
+                    </div>
+                </form>
+
+
+
+                <a href="#">I forgot my password</a><br>
+                @Html.ActionLink("Register as a new user", "Register")
+
+            </div><!-- /.login-box-body -->
+        
+            
+            </div><!-- /.login-box -->
+
+        </section>
+        }
+
+

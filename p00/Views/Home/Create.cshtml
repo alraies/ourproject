@@ -5,11 +5,12 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>تحميل وثيقه لاستماره لغرض التقيم</h4>
+        <h4>تحميل وثيقه للفقرة لغرض التقيم</h4>
         <hr />
 
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-      
+
+
         @*<div class="form-group">
             @Html.LabelFor(model => model.Id, "Id", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -17,13 +18,26 @@
                 @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
             </div>
         </div>*@
+        <div class="form-group">
+            <label for="exampleInputFile">تأكد من الوثيقة قبل رفعها</label>
+            <div class="input-group">
+                <div class="custom-file">
+                    <input type="file" multiple name="uploads" class="custom-file-input" id="exampleInputFile">
+                     @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    <label class="custom-file-label" for="exampleInputFile">Choose file</label>
+                </div>
+                <div class="input-group-append" type="submit" value="Create">
+                    <button class="input-group-text" type="submit" value="Create" >Upload</button>
+                </div>
+            </div>
+        </div>
 
         <div class="form-group">
-            @Html.Label("اضغط هنا لتحميل الوثيقه-->", htmlAttributes: new { @class = "control-label col-md-2" })
+           
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })*@
                 <input type="file" multiple name="uploads" />
-                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+               
             </div>
         </div>
 

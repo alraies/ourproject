@@ -17,21 +17,13 @@
             <div class="card-header">
                 <h3 class="card-title">قائمة اللجان</h3>
 
-                <div class="card-tools">
-                    <div class="input-group input-group-sm" style="width: 150px;">
-                        <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                        <div class="input-group-append">
-                            <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>
-                        </div>
-                    </div>
-                </div>
+              
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
-                <table class="table table-hover text-nowrap">
+                <table id="example1" class="table table-bordered table-hover">
                     <thead>
-                        <tr>
+                        <tr class="warning">
                             <th>
                                 @Html.DisplayNameFor(model => model.comitname)
                             </th>
@@ -76,7 +68,7 @@
                                         <button type="button" class="btn btn-danger">@Html.ActionLink("حذف", "Delete", new { id = item.id })</button>
 
                                     </div>
-                                   
+
                                 </td>
                             </tr>
                         }

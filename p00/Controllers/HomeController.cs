@@ -38,7 +38,7 @@ namespace WebApplication2.Controllers
                 return View();
             }
         // GET: Document/Create
-        [Authorize(Roles = "استاذ")]
+        
         public ActionResult Create()
             {
                 return View();
