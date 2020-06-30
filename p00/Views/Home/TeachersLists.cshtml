@@ -1,13 +1,14 @@
 ﻿@model IEnumerable<p00.Models.Teacher>
 
 @{
-    ViewBag.Title = "TeachersLists";
+    ViewBag.Title = "قائمة الاساتذة";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<h2>قوائم الاساتذه</h2>
-@using (Html.BeginForm("TeachersLists", "Home", FormMethod.Post))
+
+@*@using (Html.BeginForm("TeachersLists", "Home", FormMethod.Post))
 {
+<<<<<<< HEAD
     <input type="text" name="searchName"  id="searchName"
            placeholder="ابحث هنا.." />
 }
@@ -49,48 +50,124 @@
         </th>
         <th></th>
     </tr>
+=======
+   
+    <input type="text" name="searchName" id="searchName" placeholder="Search for names.." title="Type in a name">
+}*@
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.University)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.College)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Department)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.GeneralSpecialization)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Specialization)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ScientificTitle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ST_Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ST_Doner)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td>
-                | @Html.ActionLink("عرض تقيم", "ShowAssent", new { id = item.Id }) |
+    <div>
 
-            </td>
-        </tr>
-    }
+        <div >
+            <div >
+                <h3 class="box-title">قائمة الاساتذة</h3>
+            </div><!-- /.box-header -->
+            <div >
 
-</table>
+                <table id="example1" class="table table-bordered table-hover">
+                    <thead>
+                        <tr class="bg-warning">
+                            <th>
+                                @Html.DisplayNameFor(model => model.FullName)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.University)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.College)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Department)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.GeneralSpecialization)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Specialization)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ScientificTitle)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ST_Date)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ST_Doner)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Email)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Phone)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.FullName)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.University)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.College)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Department)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.GeneralSpecialization)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Specialization)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ScientificTitle)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ST_Date)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ST_Doner)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Phone)
+                                </td>
+                                <td>
+                                    | @Html.ActionLink("عرض التقيم", "ShowAssent", new { id = item.Id }) |
+
+                                </td>
+                            </tr>
+>>>>>>> f50b24f44e9179e24c64e9937d8ad989cdf431b2
+
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr class="bg-warning">
+                            <th>الاسم</th>
+                            <th>الجامعة</th>
+                            <th>الكلية</th>
+                            <th>القسم</th>
+                            <th> التخصص العام</th>
+                            <th>التخصص الدقيق</th>
+                            <th> اللقب العلمي</th>
+                            <th>تاريخ الحصول عليه</th>
+                            <th> الجهة المانحة</th>
+                            <th>الايميل</th>
+                            <th>رقم الهاتف</th>
+                            <th></th>
+
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
+        </div>
+           
+
+    </div>

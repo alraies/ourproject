@@ -1,9 +1,10 @@
 ﻿<!DOCTYPE html>
-
-<html>
+<html dir="rtl">
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>@ViewBag.Title</title>
+<<<<<<< HEAD
 
     <link href="~/Content/bootstrap.min.css" type="text/css" rel="stylesheet" />
     <link type="text/css" href="~/Content/Style.css?version=8" rel="stylesheet" />
@@ -11,144 +12,320 @@
     @*<link href="~/Content/styles.css" rel="stylesheet" />*@
 
     
+=======
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="~/Content/dashboard/plugins/fontawesome-free/css/all.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Tempusdominus Bbootstrap 4 -->
+    <link rel="stylesheet" href="~/Content/dashboard/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/Content/dashboard/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+    <!-- JQVMap -->
+    <link rel="stylesheet" href="~/Content/dashboard/plugins/jqvmap/jqvmap.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Content/dashboard/dist/css/adminlte.min.css">
+    @*<link href="~/Content/dashboard/dist/css/bootstrap.css" rel="stylesheet" />*@
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="~/Content/dashboard/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="~/Content/dashboard/plugins/daterangepicker/daterangepicker.css">
+    <!-- summernote -->
+    <link rel="stylesheet" href="~/Content/dashboard/plugins/summernote/summernote-bs4.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+>>>>>>> f50b24f44e9179e24c64e9937d8ad989cdf431b2
 </head>
+<body class="hold-transition sidebar-mini layout-fixed sidebar-collapse">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+            <!-- Left navbar links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
+                </li>
 
-<body>
-    <!--Navbar-->
-    <nav class="navbar navbar-default navbar-fixed-top">
-        <div class="container">
-
-            <div class="navbar-header">
-
-                <a href="~/" class="navbar-brand">
-                    <strong class="logo">نظام تقييم الأداء الالكتروني</strong>
-                </a>
-
-                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-
-            </div>
-
-            <div id="navbar" class="navbar-collapse collapse">
-
-                <ul class="nav navbar-nav">
-                    <li>
-                        <a href="~/Home">
-                            <i class="glyphicon glyphicon-home"></i>
-                            الرئيسية
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="glyphicon glyphicon-home"></i>
-                            نتيجة التقييم
-                        </a>
-                    </li>
-
-                </ul>
-
-
-
-                <ul class="nav  navbar-nav navbar-right">
-                    <li>
-                        <a href="#">
-                            <i class="glyphicon glyphicon-home"></i>
-                            تعليمات
-                        </a>
-                    </li>
-                    <li>
-                        <!--Partial Login-->
-                        @Html.Partial("_Login")
-                    </li>
-
-
-                </ul>
-
-
-                <a href="#" class="navbar-brand">
-                    <img src="~/Images/logo-ar703.png" style="width:200px; height:100px; margin-top:-10px; " />
-                </a>
-
-            </div>
-            @*<div class="navbar-left" >
-
-                <a href="#" class="btn btn-info ">
-                    Meun<span class="glyphicon glyphicon-tasks"></span>
-                </a>
-
-            </div>*@
-        </div>
-    </nav>
-    
-    
-
-    @*<div class="wrapper">
-        <div class="sidebar">
-            <h2>Sidebar</h2>
-            <ul>
-                <li><a href="#"><i class="fas fa-home"></i>Home</a></li>
-                <li><a href="#"><i class="fas fa-user"></i>Profile</a></li>
-                <li><a href="#"><i class="fas fa-address-card"></i>About</a></li>
-                <li><a href="#"><i class="fas fa-project-diagram"></i>portfolio</a></li>
-                <li><a href="#"><i class="fas fa-blog"></i>Blogs</a></li>
-                <li><a href="#"><i class="fas fa-address-book"></i>Contact</a></li>
-                <li><a href="#"><i class="fas fa-map-pin"></i>Map</a></li>
             </ul>
-            <div class="social_media">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="navbar-brand" style='padding:0 !important'>
+                <img class="logo1" src="~/Images/logo-ar703.png" />
+            </a>
+
+            <!-- Right navbar links -->
+            <ul class="navbar-nav ml-auto">
+                <!-- Messages Dropdown Menu -->
+                <li>
+                    <img src="~/Content/dashboardRTL/dist/img/img_avatar.png"
+                         style="
+                float:left;
+                width:30px;
+                height:30px;
+                border-radius:50%;
+                margin-right:10px;
+                margin-left:10px;
+                margin-top:3px" alt="User Image">
+                </li>
+                <li>
+                    <!--Partial Login-->
+                    @Html.Partial("_Login")
+                </li>
+                <!-- Notifications Dropdown Menu -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link" data-toggle="dropdown" href="#">
+                        <i class="far fa-bell"></i>
+                        <span class="badge badge-warning navbar-badge">15</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                        <span class="dropdown-item dropdown-header">15 Notifications</span>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-envelope mr-2"></i> 4 new messages
+                            <span class="float-right text-muted text-sm">3 mins</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-users mr-2"></i> 8 friend requests
+                            <span class="float-right text-muted text-sm">12 hours</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item">
+                            <i class="fas fa-file mr-2"></i> 3 new reports
+                            <span class="float-right text-muted text-sm">2 days</span>
+                        </a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                    </div>
+                </li>
+
+            </ul>
+        </nav>
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="" class="brand-link">
+                <img src="~/content/dashboard/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+                     style="opacity: .8">
+                <span class="brand-text font-weight-light">نظام تقييم الأداء</span>
+            </a>
+
+            <!-- Sidebar -->
+            <div class="sidebar">
+
+
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+                        with font-awesome or any other icon font library -->
+                        <li class="nav-item has-treeview menu-open">
+                            <a href="~/" class="nav-link active">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                   الرئيسية
+                                    <i class="right fas fa-angle-left"></i>
+                                </p>
+                            </a>
+
+                        </li>
+                       
+                        <li class="nav-item has-treeview ">
+                            <a href="" class="nav-link ">
+                                <i class="nav-icon fas fa-bars"></i>
+                                <p>
+                                    <span>اللجان</span>
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+
+                            </a>
+                            <ul class="nav nav-treeview">
+
+                                <li class="nav-item">
+                                    <a href="~/CommitHees/" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>اللجان</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="~/CommHees/" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>رؤساء اللجان</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="~/CommHeeMembers/" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>اعضاء اللجان</p>
+                                    </a>
+                                </li>
+
+
+                            </ul>
+                        </li>
+                        <li class="nav-item has-treeview ">
+                            <a href="" class="nav-link ">
+                                <i class="nav-icon fas fa-brush"></i>
+                                <p>
+                                    <span>الاستمارة</span>
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+
+                            </a>
+                            <ul class="nav nav-treeview">
+
+                                <li class="nav-item">
+                                    <a href="~/topics/" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>الفقرات</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="~/sections/" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>المحاور</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="~/evaluationforms/" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>قائمة الاستمارات</p>
+                                    </a>
+                                </li>
+
+
+                            </ul>
+                        </li>
+                      
+
+                        <li class="nav-item">
+                            <a href="~/Home/TeachersLists" class="nav-link">
+                                <i class="nav-icon far fa-circle text-danger"></i>
+                                <p class="text">قائمة الاساتذة</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="~/Home/Assent" class="nav-link">
+                                <i class="nav-icon far fa-circle text-success"></i>
+                                <p>تقييم استاذ</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon far fa-circle text-info"></i>
+                                <p>تحديد اجازة</p>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- /.sidebar-menu -->
             </div>
+            <!-- /.sidebar -->
+        </aside>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    @RenderBody()
+                </div><!-- /.container-fluid -->
+            </section>
+            <!-- /.content -->
         </div>
+        <!-- /.content-wrapper -->
+        <footer class="main-footer">
+            <strong>Copyright &copy; 2020 <a href="#"> علوم الحاسوب</a>.</strong>
+            جامعة بغداد
+            <div class="float-right d-none d-sm-inline-block">
+                <b>Version</b> 1.0.0 Covid-19
+            </div>
+        </footer>
 
-    </div>*@
-    <!--End Navbar-->
-    <div class="container">
-        <div class="row">
-            @RenderBody()
-        </div>
-
-
-
+        <!-- Control Sidebar -->
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
     </div>
-    <!--Footer-->
-    <footer class="navbar navbar-fixed-bottom myfooter">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <h2>
-                        جامعة بغداد/الجادرية
-                    </h2>
-                    <p></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>
-                        اقسام الموقع
-                    </h2>
-                    <p></p>
-                </div>
-                <div class="col-md-4">
-                    <h2>
-                        دليل التقييم
-                    </h2>
-                    <p></p>
-                </div>
-            </div>
-            <div class="subfooter">
-                <p>
-                    جميع الحقوق محفوظة لموقع تقييم الاداء الالكتروني - 2020
-                </p>
-            </div>
-        </div>
+    <!-- ./wrapper -->
+    <!-- jQuery -->
+    <script src="~/Content/dashboard/plugins/jquery/jquery.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button)
+    </script>
+    <!-- Bootstrap 4 -->
+    <script src="~/Content/dashboard/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- ChartJS -->
+    <script src="~/Content/dashboard/plugins/chart.js/Chart.min.js"></script>
+    <!-- Sparkline -->
+    <script src="~/Content/dashboard/plugins/sparklines/sparkline.js"></script>
+    <!-- JQVMap -->
+    <script src="~/Content/dashboard/plugins/jqvmap/jquery.vmap.min.js"></script>
+    <script src="~/Content/dashboard/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="~/Content/dashboard/plugins/jquery-knob/jquery.knob.min.js"></script>
+    <!-- daterangepicker -->
+    <script src="~/Content/dashboard/plugins/moment/moment.min.js"></script>
+    <script src="~/Content/dashboard/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="~/Content/dashboard/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Summernote -->
+    <script src="~/Content/dashboard/plugins/summernote/summernote-bs4.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="~/Content/dashboard/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/Content/dashboard/dist/js/adminlte.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="~/Content/dashboard/dist/js/pages/dashboard.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/Content/dashboard/dist/js/demo.js"></script>
+    <script src="~/Content/dashboard/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Content/dashboard/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="~/Content/dashboard/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <script>
+        $(function () {
+            $("#example1").DataTable();
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('input[type=datetime]').datepicker({
+                dateFormat: "dd/M/yy",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-60:+0",
 
-    </footer>
-    <script src="~/Scripts/jquery.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    
+            });
+
+        });
+    </script>
 </body>
-
 </html>

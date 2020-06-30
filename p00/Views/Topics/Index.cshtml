@@ -1,17 +1,17 @@
 ﻿@model IEnumerable<p00.Models.Topics>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "الفقرات";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<h2>Index</h2>
+    <h2>@ViewBag.Title</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
-    <tr>
+<table id="example2" class="table table-bordered table-hover">
+    <tr class="bg-info">
         <th>
             @Html.DisplayNameFor(model => model.CommitHees.comitname)
         </th>

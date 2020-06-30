@@ -1,0 +1,372 @@
+﻿@using Microsoft.AspNet.Identity
+@using WebApplication2.Models;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewBag.Title</title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1.0 , user-scalable=no" name="viewport">
+    
+
+    <link href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!-- Page level plugin JavaScript-->
+    <script src="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css"></script>
+
+    <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+    <!-- Bootstrap 3.3.4 -->
+    <link rel="stylesheet" href="~/Content/dashboardRTL/bootstrap/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons 2.0.0 -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="~/Content/dashboardRTL/dist/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins
+         folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="~/Content/dashboardRTL/dist/css/skins/_all-skins.min.css">
+    <!-- iCheck -->
+    <link rel="stylesheet" href="~/Content/dashboardRTL/plugins/iCheck/flat/blue.css">
+    <!-- Morris chart -->
+    <link rel="stylesheet" href="~/Content/dashboardRTL/plugins/morris/morris.css">
+    <!-- jvectormap -->
+    <link rel="stylesheet" href="~/Content/dashboardRTL/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+    <!-- Date Picker -->
+    <link rel="stylesheet" href="~/Content/dashboardRTL/plugins/datepicker/datepicker3.css">
+    <!-- Daterange picker -->
+    <link rel="stylesheet" href="~/Content/dashboardRTL/plugins/daterangepicker/daterangepicker-bs3.css">
+    <!-- bootstrap wysihtml5 - text editor -->
+    <link rel="stylesheet" href="~/Content/dashboardRTL/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- DataTables -->
+    
+
+
+
+    <link rel="stylesheet" href="~/Content/dashboardRTL/dist/fonts/fonts-fa.css">
+    <link rel="stylesheet" href="~/Content/dashboardRTL/dist/css/bootstrap-rtl.min.css">
+    <link rel="stylesheet" href="~/Content/dashboardRTL/dist/css/rtl.css">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="skin-yellow-light sidebar-mini sidebar-dark-danger ">
+    <div class="wrapper">
+
+
+        <header class="main-header">
+
+
+            <nav class="navbar navbar-default" role="navigation">
+
+                <a href="#" class="navbar-brand" style='padding:0 !important'>
+                    <img class="logo1" src="~/Images/logo-ar703.png" />
+                </a>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li>
+                            <!--Partial Login-->
+                            @Html.Partial("_Login")
+                        </li>
+                        <li><a href="#" style="visibility:hidden">Leftttttttttwwwwwwwwwwwwwwwttt</a></li>
+
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+
+                        <li>
+                            <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                                <span style="color:#F5C538;" class="sr-only">Toggle navigation</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+
+        </header>
+        <!-- Left side column. contains the logo and sidebar -->
+
+
+        @if (User.IsInRole("لجنة") || User.IsInRole("admin"))
+        {
+            <aside class="main-sidebar">
+                <!-- sidebar: style can be found in sidebar.less -->
+                <section class="sidebar">
+                    <!-- Sidebar user panel -->
+                    <!-- search form -->
+                    <!-- /.search form -->
+                    <!-- sidebar menu: : style can be found in sidebar.less -->
+
+                    <ul class="sidebar-menu">
+
+                        <li class="active treeview">
+                            <a href="~/">
+                                <i class="fa fa-dashboard"></i> <span>الرئيسية</span> <i class="fa fa-angle-left pull-left"></i>
+                            </a>
+
+                        </li>
+
+                        <li class="treeview">
+                            <a href="">
+                                <i class="fa fa-pie-chart"></i>
+                                <span>اللجان</span>
+                                <i class="fa fa-angle-left pull-left"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="~/CommitHees/"><i class="fa fa-circle-o"></i>  اللجان</a></li>
+                                <li><a href="~/CommHees/"><i class="fa fa-circle-o"></i>  رؤساء اللجان</a></li>
+                                <li><a href="~/CommHeeMembers/"><i class="fa fa-circle-o"></i> اعضاء اللجان</a></li>
+                                >
+                            </ul>
+                        </li>
+
+                        <li class="treeview">
+                            <a href="">
+                                <i class="fa fa-pie-chart"></i>
+                                <span>الاستمارة</span>
+                                <i class="fa fa-angle-left pull-left"></i>
+                            </a>
+                            <ul class="treeview-menu">
+                                <li><a href="~/topics"><i class="fa fa-circle-o"></i> الفقرات</a></li>
+                                <li><a href="~/sections"><i class="fa fa-circle-o"></i> المحاور</a></li>
+                                <li><a href="~/EvaluationForms"><i class="fa fa-circle-o"></i> الاستمارات</a></li>
+                                >
+                            </ul>
+                        </li>
+
+
+                        <li><a href="#"><i class="fa fa-circle-o text-red"></i> <span>Important</span></a></li>
+                        <li><a href="#"><i class="fa fa-circle-o text-yellow"></i> <span>Warning</span></a></li>
+                        <li><a href="~/Home/TeachersLists"><i class="fa fa-circle-o text-aqua"></i> <span>الاساتذة</span></a></li>
+                    </ul>
+
+                </section>
+
+                <!-- /.sidebar -->
+            </aside>
+        }
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <h1>
+                    @ViewBag.Title
+                    <small>نظام تقييم الاداء الالكتروني</small>
+                </h1>
+                <ol class="breadcrumb">
+                    <li><a href="#"><i class="fa fa-dashboard"></i>الرئيسية</a></li>
+                    <li class="active"> @ViewBag.Title</li>
+                </ol>
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+
+                @RenderBody()
+                <p>
+                    What is a paragraph?
+                    A paragraph is a series of related sentences developing a central idea, called the topic. Try to think about paragraphs in terms of thematic unity: a paragraph is a sentence or a group of sentences that supports one central, unified idea. Paragraphs add one idea at a time to your broader argument.
+
+                    How do I unify my ideas in a paragraph?
+                    Probably the most effective way to achieve paragraph unity is to express the central idea of the paragraph in a topic sentence.
+
+                    Topic sentences are similar to mini thesis statements. Like a thesis statement, a topic sentence has a specific main point. Whereas the thesis is the main point of the essay, the topic sentence is the main point of the paragraph. Like the thesis statement, a topic sentence has a unifying function. But a thesis statement or topic sentence alone doesn’t guarantee unity. An essay is unified if all the paragraphs relate to the thesis, whereas a paragraph is unified if all the sentences relate to the topic sentence. Note: Not all paragraphs need topic sentences. In particular, opening and closing paragraphs, which serve different functions from body paragraphs, generally don’t have topic sentences.
+
+                    In academic writing, the topic sentence nearly always works best at the beginning of a paragraph so that the reader knows what to expect:
+
+                    The embrace of Twitter by politicians and journalists has been one of its most notable features in recent years: for both groups the use of Twitter is becoming close to a requirement.
+
+                    —Paul Bernal, “A Defence of Responsible Tweeting”
+
+                    This topic sentence forecasts the central idea or main point of the paragraph: “politicians” and “journalists” rely on Twitter. The rest of the paragraph will focus on these two Twitter-user groups, thereby fulfilling the promise made by the topic sentence. By avoiding irrelevant information that does not relate to the topic sentence, you can compose a unified paragraph.
+
+                    How do I develop my ideas in a paragraph?
+                    Often, the body paragraph demonstrates and develops your topic sentence through an ordered, logical progression of ideas. There are a number of useful techniques for expanding on topic sentences and developing your ideas in a paragraph. Illustration in a paragraph supports a general statement by means of examples, details, or relevant quotations (with your comments).
+
+                    In Harry’s world fate works not only through powers and objects such as prophecies, the Sorting Hat, wands, and the Goblet of Fire, but also through people. Repeatedly, other characters decide Harry’s future for him, depriving him of freedom and choice. For example, before his eleventh birthday, the Dursleys control Harry’s life, keeping from him knowledge of his past and understanding of his identity (Sorcerer’s 49). In Harry Potter and the Chamber of Secrets, Dobby repeatedly assumes control over events by intercepting Ron’s and Hermione’s letters during the summer; by sealing the barrier to Platform 93⁄4, causing Harry to miss the Hogwarts Express; and by sending a Bludger after Harry in a Quidditch match, breaking his wrist. Yet again, in Harry Potter and the Prisoner of Azkaban, many adults intercede while attempting to protect Harry from perceived danger, as Snape observes: “Everyone from the Minister of Magic downward has been trying to keep famous Harry Potter safe from Sirius Black” (284). All these characters, as enactors of fate, unknowingly drive Harry toward his destiny by attempting to control or to direct his life, while themselves controlled and directed by fate.
+
+                    —Julia Pond, “A Story of the Exceptional: Fate and Free Will in the Harry Potter Series”
+
+                    The definition paragraph does exactly what you would expect: it defines a term, often by drawing distinctions between the term and other related ones. The definition that you provide will often be specific to your subject area. Try to avoid perfunctory dictionary definitions that do not inform your analysis in a meaningful way.
+
+                    Our typology is built on three dimensions: internality, types of participants, and the degree of effective resistance. For our study, a civil war is any armed conflict that involves (a) military action internal to the metropole, (b) the active participation of the national government, and (c) effective resistance by both sides. With these criteria, we differentiate civil wars from other types of internal violent conflicts.
+
+                    —Melvin Small and J. David Singer, Resort to Arms: International and Civil Wars, 1816–1980
+
+                    The analysis or classification paragraph develops a topic by distinguishing its component parts and discussing each of these parts separately.
+
+                    Policies of privatisation should be considered as responses to several distinct pressures. First, privatisation is a response by the state to internal forces such as increasing fiscal problems (O’Connor, 1973). It provides a means of lessening the state’s fiscal responsibilities by encouraging the development of private alternatives which, theoretically at least, do not draw upon the state’s financial reserves. Second, the promotion of private sector activity is a response to pressures originating ‘outside’ the state apparatus. These include demands from people who see a large state bureaucracy as inefficient and wasteful, demands from business interests who claim that they can overcome these inefficiencies, and pressures from client groups who seek to reduce their dependency on the welfare state by having more control over the services on which they depend. Clearly, this variety of calls for privatisation means that it is not a process with a uniform outcome; there exists a correspondingly wide variety of forms of privatisation.
+
+                    —Adapted from Glenda Laws, “Privatisation and the Local Welfare State”
+
+                    A comparison or a contrast paragraph zeroes in on a key similarity or difference between, for instance, two sources, positions, or ideas. Decide whether to deal only with similarities or only with differences, or to cover both. Also, keep in mind that a single comparison can be spread out over two separate paragraphs. As the following topic sentence indicates, you should make your intention clear to readers from the outset.
+
+                    Evidence from industrialized countries suggests that compared with older men, older women more often experience functional impairments and activity limitations, have longer durations of disability, and spend proportionately more remaining years of life disabled.
+
+                    —Kathryn M. Yount, “Differences in Disability among Older Women in Egypt and Tunisia”
+
+                    A qualification paragraph acknowledges that what you previously asserted is not absolutely true or always applicable.
+
+                    This study was a preliminary study of high school student value changes because of the terrorist attack on the U.S. The major limitations of this study were that the student population was from California and might not truly represent all high school students in the U.S. Further, this study could not be considered a truly longitudinal study because of privacy issues that prevented the researchers from identifying all the students who returned surveys before the attack. In addition, the senior class had graduated the previous year, and a much larger freshman class entered the school. These issues not only made the samples similar, but also different in their composition. The researchers will conduct periodic studies to explore whether these value changes are permanent and continue into adulthood. We do not know what if any changes will take place in their values as they grow older, and we will continue to explore their values in our longitudinal studies of the impact of the 9/11 terrorist attacks.
+
+                    —Edward F. Murphy, et al., “9/11 Impact on Teenage Values”
+
+                    The process paragraph involves a straightforward step-by-step description. Process description often follows a chronological sequence.
+
+                    In brief, the mummification process may be summarized as follows: extract, sterilize, dehydrate, perfume, seal, tag, and stock. All were done ceremoniously and with due respect to the dead body. The viscera were extracted through an incision about 10 inches long, usually made in the left side of the abdomen. Through this incision, all the “floating” contents of the abdominal cavity, namely, the stomach, the liver, the spleen, and the intestines, were removed but the kidneys were left in place. The diaphragm was then cut and the thoracic contents removed through the abdominal incision. The heart, which was considered the center of emotions and the seat of conscience, was left in place. The ancient Egyptians seem to have attached no importance to the brain, which was removed through the ethmoid bone. Following these extractions began the slow process of sterilization and dehydration of the body, accomplished by osmosis with dry natron. Resterilization of the cavities, perfuming, closing the incision, and wrapping the body with linen and with beeswax completed the process. Molten resin was used to seal the body and its wrappings, providing a barrier against insects and anaerobes.
+
+                    —Adapted from Mohamed E. Salem and Garabed Eknoyan, “The Kidney in Ancient Egyptian Medicine: Where Does it Stand?”
+
+                    Very often, a single paragraph will develop by a combination of methods.
+
+                    Definition
+                    Analysis / Classification
+                    Illustration
+                    A celebrity is “known for being well-known” (Boorstin, 1961, p. 57), regardless of whether that eminence derives from the entertainment field, medicine, science, politics, religion, sports, or close association with other celebrities. Therefore, “fame” is a psychological concept akin to object-relations theory and is multifaceted in scope. The psychological study of celebrity and fame has generally followed three trends. First, there is an interest in characteristics that distinguish eminent people with significant skills or intelligence from the general population (Albert, 1996; Simonton, 1999). Other studies have addressed how celebrity affects public attitudes such as consumer behaviour (Till & Shimp, 1998; Tripp, Jensen, & Carlson, 1994). Lastly, there are psychological consequences of achieving fame. For instance, Schaller (1997) found that in some instances fame leads to chronic self-consciousness and perhaps self-destructive behaviour. This is an important aspect to the study of fame and celebrity given that other research has linked depressive neurosis to over-identification with social roles and norms, feeling dependent on others, self-esteem problems, and unfulfilled wishes of love and acceptance (Frommer et al., 1995). Indeed, Giles (2000) has described several problems faced by celebrities, including loneliness, making new friendships that are genuine, and the loss of privacy.
+                    —Lynn E. McCutcheon, et al., “Conceptualization and Measurement of Celebrity Worship”
+
+                    How do I make my ideas flow in a paragraph?
+                    “Flow” is a word used to describe the way a paragraph moves from idea to idea. This movement occurs both within the paragraph and between paragraphs. The best overall strategy to enhance flow within a paragraph is to show connections. A variety of simple techniques can help you to clarify those connections and thereby communicate your intended logic. Deliberate repetition of key words helps. Reiterating the focus of your analysis by repeating key words or synonyms for key words enhances the overall flow of the paragraph. In the following example, the repetition of the key words “Canadian,” “nation,” and “communication” allows for clear flow throughout the paragraph.
+
+                    It’s perhaps not surprising that Marshall McLuhan, the most influential communications expert of the twentieth century, was a Canadian. As a nation, we have been preoccupied with forging communication links among a sparse, widespread population. The old Canadian one-dollar bill, with its line of telephone poles receding to the distant horizon, illustrates this preoccupation. Year after year we strive to maintain a national radio and television broadcasting system in the face of foreign competition. We have been aggressive in entering the international high technology market with our telecommunications equipment.
+
+                    —Margot Northey, Impact: A Guide to Business Communication
+
+                    While the deliberate repetition of a key word is a useful tool, you generally want to avoid repeating an entire idea. In particular, avoid ending a paragraph by making the same point you made in the topic sentence. This type of reiteration stalls or disrupts the development of ideas as well as the logical progression to the next paragraph. Strategic use of pronouns such as it, they, and this keeps the focus on the ideas announced at the beginning of the paragraph—as long as they are clearly linked to specific nouns. In the following example the antecedent is underlined and its corresponding pronoun is in bold.
+
+                    Minois concluded his overview by suggesting that old age was something “which the early Middle Ages were decidedly not concerned about” (1989: 155). This lack of concern was not because of the absence of old people, for Minois believed that “once they had survived to their 20th year, the men [sic] . . . could expect to live as long as we do” (1989: 149). Rather, he suggested, old people “played only a negligible social role and were dependent on the care of their families”—in effect they were marginalised by the society of the time (1989: 149).
+
+                    —Chris Gilleard, “Old Age in the Dark Ages”
+
+                    Specialized linking words can also be powerful tools for pulling ideas together. But don’t just sprinkle them into your sentences—use them to support your logic.
+
+                    To signal a reinforcement of ideas:
+                </p>
+
+            </section><!-- /.content -->
+        </div><!-- /.content-wrapper -->
+        <!--Footer-->
+        <footer class="layout-footer-not-fixed myfooter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h2>
+                            جامعة بغداد/الجادرية
+                        </h2>
+                        <p></p>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>
+                            اقسام الموقع
+                        </h2>
+                        <p></p>
+                    </div>
+                    <div class="col-md-4">
+                        <h2>
+                            دليل التقييم
+                        </h2>
+                        <p></p>
+                    </div>
+                </div>
+                <div class="subfooter">
+                    <p>
+                        جميع الحقوق محفوظة لموقع تقييم الاداء الالكتروني - 2020
+                    </p>
+                </div>
+            </div>
+
+        </footer>
+
+
+        <!-- Control Sidebar -->
+        <!-- /.control-sidebar -->
+        <!-- Add the sidebar's background. This div must be placed
+        immediately after the control sidebar -->
+        <div class="control-sidebar-bg"></div>
+    </div><!-- ./wrapper -->
+    <!-- jQuery 2.1.4 -->
+    <script src="~/Content/dashboardRTL/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <!-- jQuery UI 1.11.4 -->
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+    <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+    <script>
+        $.widget.bridge('uibutton', $.ui.button);
+    </script>
+    <!-- Bootstrap 3.3.4 -->
+    <script src="~/Content/dashboardRTL/bootstrap/js/bootstrap.min.js"></script>
+    <!-- Morris.js charts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="~/Content/dashboardRTL/plugins/morris/morris.min.js"></script>
+    <!-- Sparkline -->
+    <script src="~/Content/dashboardRTL/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <!-- jvectormap -->
+    <script src="~/Content/dashboardRTL/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="~/Content/dashboardRTL/plugins/jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <!-- jQuery Knob Chart -->
+    <script src="~/Content/dashboardRTL/plugins/knob/jquery.knob.js"></script>
+    <!-- daterangepicker -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.2/moment.min.js"></script>
+    <script src="~/Content/dashboardRTL/plugins/daterangepicker/daterangepicker.js"></script>
+    <!-- datepicker -->
+    <script src="~/Content/dashboardRTL/plugins/datepicker/bootstrap-datepicker.js"></script>
+    <!-- Bootstrap WYSIHTML5 -->
+    <script src="~/Content/dashboardRTL/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js"></script>
+    <!-- Slimscroll -->
+    <script src="~/Content/dashboardRTL/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="~/Content/dashboardRTL/plugins/fastclick/fastclick.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="~/Content/dashboardRTL/dist/js/app.min.js"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="~/Content/dashboardRTL/dist/js/pages/dashboard.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="~/Content/dashboardRTL/dist/js/demo.js"></script>
+    <!-- DataTables -->
+    <!-- jQuery 2.1.4 -->
+    <script src="~/Content/dashboardRTL/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    
+    <script src="~/Content/dashboardRTL/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/Content/dashboardRTL/plugins/datatables/dataTables.bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Setup - add a text input to each footer cell
+            $('#example tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+            });
+
+            // DataTable
+            var table = $('#example').DataTable({
+                initComplete: function () {
+                    // Apply the search
+                    this.api().columns().every(function () {
+                        var that = this;
+
+                        $('input', this.footer()).on('keyup change clear', function () {
+                            if (that.search() !== this.value) {
+                                that
+                                    .search(this.value)
+                                    .draw();
+                            }
+                        });
+                    });
+                }
+            });
+
+        });
+    </script>
+
+</body>
+</html>

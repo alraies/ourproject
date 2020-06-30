@@ -11,6 +11,7 @@ using p00.Models;
 
 namespace p00.Controllers
 {
+    [Authorize]
     public class CommitHeesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

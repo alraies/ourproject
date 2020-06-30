@@ -4,8 +4,9 @@
 
 
 
-@{ ViewBag.Title = "Home Page"; }
+@{ ViewBag.Title = "الرئيسية"; }
 
+<<<<<<< HEAD
 <div class="jumbotron">
     <h1>الحاسبات</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
@@ -34,3 +35,197 @@
                             <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
                         </div>
                     </div>
+=======
+@if (User.IsInRole("استاذ"))
+{
+    <!-- Main content -->
+    <section class="content">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h4>ادخال المعلومات</h4>
+                        <p>جميع المعلومات المطلوبة</p>
+                    </div>
+                    <div class="icon">
+                       
+                    </div>
+                    <a href="Home/CreateProfileTeachers" class="small-box-footer">اضافة <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h4>تفعيل الحساب<h4>
+                        <p>تفعيل الحساب للدخول ضمن عملة التقييم</p>
+                    </div>
+                    <div class="icon">
+                      
+                    </div>
+                    <a href="~/EvaluationForms" class="small-box-footer">تفعيل <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h4>رفع الوثائق <h4>
+                        <p>رفع الوثائق المطلوبة لعملية التقييم</p>
+                    </div>
+                    <div class="icon">
+                       
+                    </div>
+                    <a href="~/Home/DocumentsofTopic" class="small-box-footer"> رفع <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <h4>نتيجة التقييم<h4>
+                        <p>يتم ارسال رسالة نصية على الاميل عند موعد ظهور النتيجة</p>
+                    </div>
+                    <div class="icon">
+                      
+
+                    </div>
+                    <a href="~/Home/ShowAssent" class="small-box-footer">اظهار <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+        </div><!-- /.row -->
+        <!-- Main row -->
+    </section>
+}
+@if (User.IsInRole("لجنة"))
+{
+    <!-- Main content -->
+    <section class="content">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h4>ادخال المعلومات<h4>
+                        <p>جميع المعلومات المطلوبة</p>
+                    </div>
+                    <div class="icon">
+                       
+                    </div>
+                    <a href="~/Home/CreateProfileTeachers" class="small-box-footer">اضافة <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h4>تقييم استاذ<h4>
+                        <p>تقييم المحور الخاص في اللجنة المنتمي اليها</p>
+                    </div>
+                    <div class="icon">
+                     
+                    </div>
+                    <a href="~/EvaluationForms" class="small-box-footer">تقييم <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h4>رفع الوثائق <h4>
+                        <p>رفع الوثائق المطلوبة لعملية التقييم</p>
+                    </div>
+                    <div class="icon">
+                     
+                    </div>
+                    <a href="~/Home/DocumentsofTopic" class="small-box-footer"> رفع <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <h4>نتيجة التقييم<h4>
+                        <p>يتم ارسال رسالة نصية على الاميل عند موعد ظهور النتيجة</p>
+                    </div>
+                    <div class="icon">
+                     
+
+                    </div>
+                    <a href="~/Home/ShowAssent" class="small-box-footer">اظهار <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+        </div><!-- /.row -->
+        <!-- Main row -->
+    </section>
+}
+@if (User.IsInRole("admin"))
+{
+    <!-- Main content -->
+    <section class="content">
+        <!-- Small boxes (Stat box) -->
+        <div class="row">
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-info">
+                    <div class="inner">
+                        <h4>ادخال المعلومات<h4>
+                        <p>جميع المعلومات المطلوبة</p>
+                    </div>
+                    <div class="icon">
+                     
+
+                    </div>
+                    <a href="Home/CreateProfileTeachers" class="small-box-footer">اضافة <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-green">
+                    <div class="inner">
+                        <h4>تفعيل الحساب<h4>
+                        <p>تفعيل الحساب للدخول ضمن عملة التقييم</p>
+                    </div>
+                    <div class="icon">
+                       
+
+                    </div>
+                    <a href="~/EvaluationForms" class="small-box-footer">تفعيل <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-yellow">
+                    <div class="inner">
+                        <h4>رفع الوثائق <h4>
+                        <p>رفع الوثائق المطلوبة لعملية التقييم</p>
+                    </div>
+                    <div class="icon">
+                       
+                    </div>
+                    <a href="~/Home/DocumentsofTopic" class="small-box-footer"> رفع <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+            <div class="col-lg-3 col-xs-6">
+                <!-- small box -->
+                <div class="small-box bg-red">
+                    <div class="inner">
+                        <h4>انشاء حساب<h4>
+                        <p>انشاء حسابات للجان والاساتذة</p>
+                    </div>
+                    <div class="icon">
+                        
+
+                    </div>
+                    <a href="~/Account/Register" class="small-box-footer">انشاء <i class="fa fa-arrow-circle-left"></i></a>
+                </div>
+            </div><!-- ./col -->
+        </div><!-- /.row -->
+        <!-- Main row -->
+    </section>
+}
+
+>>>>>>> f50b24f44e9179e24c64e9937d8ad989cdf431b2

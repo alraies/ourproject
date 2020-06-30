@@ -1,0 +1,58 @@
+﻿@model IEnumerable<p00.Models.CommitHees>
+
+@{
+    ViewBag.Title = "اللجان";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h2>قائمة اللجان</h2>
+
+<p>
+    @Html.ActionLink("انشاء لجنة جديدة", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.comitname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comitDecipt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comitpriod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.comittype)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.isActive)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.comitname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comitDecipt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comitpriod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.comittype)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.isActive)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id })
+        </td>
+    </tr>
+}
+
+</table>

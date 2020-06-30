@@ -1,58 +1,83 @@
 ﻿@model IEnumerable<p00.Models.CommitHees>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "اللجان";
     Layout = "~/Views/Shared/_MainLayout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>قائمة اللجان</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+   
+    <button type="button" class="btn btn-default"> @Html.ActionLink("انشاء لجنة جديدة", "Create")</button>
 </p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.comitname)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.comitDecipt)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.comitpriod)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.comittype)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.isActive)
-        </th>
-        <th></th>
-    </tr>
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">قائمة اللجان</h3>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.comitname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.comitDecipt)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.comitpriod)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.comittype)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.isActive)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.id })
-        </td>
-    </tr>
-}
+              
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body table-responsive p-0">
+                <table id="example1" class="table table-bordered table-hover">
+                    <thead>
+                        <tr class="warning">
+                            <th>
+                                @Html.DisplayNameFor(model => model.comitname)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.comitDecipt)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.comitpriod)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.comittype)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.isActive)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.comitname)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.comitDecipt)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.comitpriod)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.comittype)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.isActive)
+                                </td>
+                                <td>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-success"> @Html.ActionLink("تعديل", "Edit", new { id = item.id })</button>
+                                        <button type="button" class="btn btn-default">@Html.ActionLink("التفاصيل", "Details", new { id = item.id })</button>
+                                        <button type="button" class="btn btn-danger">@Html.ActionLink("حذف", "Delete", new { id = item.id })</button>
 
-</table>
+                                    </div>
+
+                                </td>
+                            </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
+    </div>
+</div>

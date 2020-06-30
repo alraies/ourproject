@@ -6,6 +6,7 @@ using System.Web.Mvc;
 
 namespace p00.Controllers
 {
+    [Authorize]
     public class NotificationsController : Controller
     {
         // GET: Notifications

@@ -1,13 +1,21 @@
 ﻿@model IEnumerable<p00.Models.EvaluationForm>
 
+<<<<<<< HEAD
 @{ ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_MainLayout.cshtml"; }
+=======
+@{
+    ViewBag.Title = "الاستمارات";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+>>>>>>> f50b24f44e9179e24c64e9937d8ad989cdf431b2
 
-<h2>Index</h2>
+<h2>@ViewBag.Title</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<<<<<<< HEAD
 <table class="table">
     <tr>
         <th>
@@ -38,6 +46,39 @@
 </tr>
 }
     
+=======
+<table id="example1" class="table table-bordered table-hover">
+    <thead>
+        <tr class="bg-info">
+            <th>
+                @Html.DisplayNameFor(model => model.year)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.iscurent)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.year)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.iscurent)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id })|
+                    @Html.ActionLink("into", "into", new { id = item.id })
+                </td>
+            </tr>
+        }
+    </tbody>
+>>>>>>> f50b24f44e9179e24c64e9937d8ad989cdf431b2
 </table>
 @if (ViewBag.Message != null)
 {

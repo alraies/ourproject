@@ -17,6 +17,7 @@
         var c3 = db.CommitHees.ToList();
         //Secure from Hackers
         @Html.AntiForgeryToken()
+<<<<<<< HEAD
     <ul class="nav  navbar-nav navbar-right">
         <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -164,6 +165,116 @@
                         <i class="glyphicon glyphicon-user"></i>
                         دخول
                     </a>}
+=======
+        <!-- User Account: style can be found in dropdown.less -->
+       <div class="container">
+           <div class="row">
+               <div class="dropdown user user-menu" style="float:right">
+                 
+                   <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+
+
+                       <span class="hidden-xs">
+                           @if (CurrentTeacher != null)
+                           {
+                               var teacher = db.Teachers.Find(CurrentTeacher.TeacherID);
+
+
+                           <div class="pull-left info">
+                               <p style="color:#F5C538"><strong>   مرحباً بك يا .. @teacher.FullName </strong></p>
+                             
+                           </div>
+                           }
+                           else
+                           {
+                       <div class="pull-left info">
+                           <strong style="color:#F5C538">   مرحباً بك يا .. @CurrentUser.UserName</strong>
+                        
+                       </div>
+                           }
+                       </span>
+                   </a>
+                   <ul class="dropdown-menu">
+                       <!-- User image -->
+                       <li style="height:175px;padding:10px;text-align:center; background-color: #102E5E;">
+
+                           <img src="~/Content/dashboardRTL/dist/img/img_avatar.png" style="vertical-align:middle" class="img-circle" alt="User Image">
+                           <p>
+                               <b href="#" style="color:#F5C538">
+                                   مرحباً بك يا ..
+                                   @if (CurrentTeacher != null)
+                                   {
+                                       var teacher1 = db.Teachers.Find(CurrentTeacher.TeacherID);
+                                       @teacher1.FullName
+                                   }
+
+                               </b>
+
+
+
+                           </p>
+                       </li>
+                       <!-- Menu Body -->
+                       <div class="text-center">
+
+
+
+
+                           @if (CurrentTeacher != null)
+                           {
+                               @*@if (CurrentUser.Id == CurrentTeacher.UserID) { }*@
+
+                               <li class="user-body">
+                                   <div class=" text-center">
+                                       <a href="~/Home/EditProfileTeachers" class="btn btn-primary btn-block" role="button">معلومات الاستاذ</a>
+                                   </div>
+
+                               </li>
+                           }
+
+                           else
+                           { <li class="user-body">
+                                   <div class="text-center">
+
+                                       <a href="~/Home/EditProfileTeachers" class="btn btn-primary btn-block" role="button">اضافة معلومات الاستاذ</a>
+                                   </div>
+
+
+                             </li>
+                           }
+                           <li class="user-body">
+                               <div class="text-md-center">
+
+                                   <a href="~/Home/EditProfileTeachers" class="btn btn-primary btn-block" role="button">تعديل الحساب</a>
+                               </div>
+                           </li>
+
+
+
+                           <!-- Menu Footer-->
+                           <li class="user-footer">
+
+                               <div style="text-align:center">
+                                   <a href="javascript:document.getElementById('LogOff').submit()" class="btn btn-danger btn-block"><b>تسجيل الخروج</b></a>
+                               </div>
+
+                           </li>
+                       </div>
+                   </ul>
+               </div>
+           </div>
+       </div>
+      
+    }
+
+}
+else
+{
+    <a href="~/Account/Login">
+        <i class="glyphicon glyphicon-user"></i>
+        دخول
+    </a>}
+>>>>>>> f50b24f44e9179e24c64e9937d8ad989cdf431b2
 
 
 

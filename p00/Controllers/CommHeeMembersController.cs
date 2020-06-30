@@ -11,6 +11,7 @@ using p00.Models;
 
 namespace p00.Controllers
 {
+    [Authorize]
     public class CommHeeMembersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

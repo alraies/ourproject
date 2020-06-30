@@ -53,7 +53,7 @@
 }
 
 body {
-    padding-top: 50px;
+    padding-top: 100px;
     padding-bottom:200px;
     overflow: auto;
 }
@@ -104,6 +104,7 @@ body {
         width: 100%;
     }
 
+<<<<<<< HEAD
 #Notification {
     width: 200px;
    
@@ -120,4 +121,13 @@ body {
 }
 .btn {
     border-radius: 15px
+=======
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -7.5px;
+    margin-left: -7.5px;
+>>>>>>> f50b24f44e9179e24c64e9937d8ad989cdf431b2
 }

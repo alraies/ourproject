@@ -11,6 +11,7 @@ using p00.Models;
 
 namespace p00.Controllers
 {
+    [Authorize(Roles ="استاذ")]
     public class TeachersController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();

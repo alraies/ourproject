@@ -14,7 +14,7 @@ using System.Web.Helpers;
 
 namespace WebApplication2.Controllers
 {
-   
+   [Authorize]
         public class HomeController : Controller
         {
             private ApplicationDbContext db = new ApplicationDbContext();
@@ -44,8 +44,9 @@ namespace WebApplication2.Controllers
 
                 return View();
             }
-            // GET: Document/Create
-            public ActionResult Create()
+        // GET: Document/Create
+        
+        public ActionResult Create()
             {
                 return View();
             }
@@ -184,11 +185,13 @@ namespace WebApplication2.Controllers
                 ViewBag.TopicsId = new SelectList(db.Topics, "Id", "TopicName", topicEV.TopicsId);
                 return View(topicEV);
             }
+       
         public ActionResult DegreeOfAssessment()
         {
             var topicEVs = db.TopicEVs.Include(t => t.Document).Include(t => t.EvaluationForm).Include(t => t.Sections).Include(t => t.Teacher).Include(t => t.Topics);
             return View(topicEVs.ToList());
         }
+        
         public ActionResult EditProfileTeachers()
         {
             var UserID = User.Identity.GetUserId();
@@ -202,6 +205,7 @@ namespace WebApplication2.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+       
         [ValidateAntiForgeryToken]
         public ActionResult EditProfileTeachers([Bind(Include = "Id,FullName,University,College,Department,Certificate,C_Date,C_Doner,GeneralSpecialization,Specialization,ScientificTitle,ST_Date,ST_Doner,Email,Phone")] Teacher teacher)
         {
@@ -215,6 +219,7 @@ namespace WebApplication2.Controllers
         }
 
         // GET: Teachers/Create
+       
         public ActionResult CreateProfileTeachers()
         {
             return View();
@@ -239,7 +244,7 @@ namespace WebApplication2.Controllers
 
             return View(teacher);
         }
-
+        [Authorize(Roles = "لجنة,admin")]
         public ActionResult TeachersLists()
         {
             return View(db.Teachers.ToList());
