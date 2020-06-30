@@ -51,16 +51,23 @@
         </div>
         @if (document.Count()>0)
         {
-            foreach(var d in document)
-            {
-              <div class="form-group">
-                @Html.Label("وثيقه", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    <img src="~/Uploads/@d.Name" />
+            <div class="panel panel-info">
+                 <div class="panel-heading"><center><h1>الوثائق</h1></center></div>
+                <div class="row panel-body">
+                    @foreach (var d in document)
+                    {
+                       
+                        <div class="col-md-3 thumbnail" style="margin-left:20px; margin-bottom:10px; min-height:850px; min-width:450px;">
+                            <div class="form-group">
+                                @*@Html.Label("وثيقه", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                                <div class="col-md-10">
+                                    <img src="~/Uploads/@d.Name" width="440" height="840" />
+                                </div>
+                            </div>
+                        </div>
+                    }
                 </div>
-               </div>
-            }
-            
+                    </div>
         }
         else
         {

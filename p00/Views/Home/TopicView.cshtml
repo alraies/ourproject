@@ -1,0 +1,54 @@
+﻿@model IEnumerable<p00.Models.TopicEV>
+@using Microsoft.AspNet.Identity
+@using WebApplication2.Models;
+@{
+    ViewBag.Title = "TopicView";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+
+<div class="jumbotron">
+    <h1>الحاسبات</h1>
+</div>
+@if (Request.IsAuthenticated)
+{
+    var db = new ApplicationDbContext();
+    var UserID = User.Identity.GetUserId();
+    var CurrentUser = db.Users.Where(a => a.Id == UserID).SingleOrDefault();
+    var CurrentTeacher = db.UserToTeachers.Where(a => a.UserID == UserID).SingleOrDefault();
+    if (CurrentTeacher != null)
+    {
+        foreach (var item in Model)
+        {
+            var document = db.Documents.Where(a => a.TopicEVId == item.Id);
+
+            // var item3 = item.TopicEVs;  && item.Document == null
+            if (item.Topics.ReqDoc == true && document.Count() <= 0 && item.TeacherId == CurrentTeacher.TeacherID)
+            {
+
+                <div class="panel panel-info">
+                    <div class="panel-heading"><h1>فقرة @Html.DisplayFor(modelItem => item.Topics.TopicName)</h1></div>
+
+
+                    <div class="row panel-body">
+                        <h5>@Html.DisplayFor(modelItem => item.Topics.Description)</h5>
+
+                        @Html.ActionLink("تحميل الوثيقه", "Create", new { id = item.Id }, new { @class = "btn btn-primary" })
+                        @*<h5>@Html.DisplayFor(modelItem => item)</h5>*@
+                        @*@Html.ActionLink("تحميل الوثيقه", "Create", new { id = item.Id, new { @class = "btn btn-primary" })*@
+                        @*@foreach (var subItem in item.TopicEVs)
+                            {
+                              <div class="col-md-3 thumbnail" style="margin-left:20px; margin-bottom:30px; min-height:380px;">
+
+                              <h3>@Html.DisplayFor(modelItem => subItem.EvaluationFormId)</h3>
+                             <h5>@Html.Raw(HttpUtility.HtmlDecode(Html.DisplayFor(modelItem => subItem.EvaluationFormId).ToString()))</h5>
+                               @Html.ActionLink("التفاصيل", "Details", new { JobId = subItem.Id }, new { @class = "btn btn-primary" })
+                              </div>
+                             }*@
+                    </div>
+
+                </div>
+            }
+        }
+    }
+}

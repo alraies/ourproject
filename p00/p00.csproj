@@ -268,6 +268,7 @@
     <Compile Include="Migrations\202006191014073_TopicEVToTopics.Designer.cs">
       <DependentUpon>202006191014073_TopicEVToTopics.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202006191022161_TopicEVToEvaluationFormANDSectionsANDTeacher.cs" />
     <Compile Include="Migrations\202006241232569_addPrmaryKeyinTableDucment.cs" />
     <Compile Include="Migrations\202006241232569_addPrmaryKeyinTableDucment.Designer.cs">
       <DependentUpon>202006241232569_addPrmaryKeyinTableDucment.cs</DependentUpon>
@@ -287,6 +288,10 @@
     <Compile Include="Migrations\202006241602348_TopicEVTOdocumnt1.cs" />
     <Compile Include="Migrations\202006241602348_TopicEVTOdocumnt1.Designer.cs">
       <DependentUpon>202006241602348_TopicEVTOdocumnt1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202006300132120_AddcolleFieldVaction.cs" />
+    <Compile Include="Migrations\202006300132120_AddcolleFieldVaction.Designer.cs">
+      <DependentUpon>202006300132120_AddcolleFieldVaction.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -460,6 +465,11 @@
     <Content Include="Views\Home\DocumentsofTopic.cshtml" />
     <Content Include="Views\Home\EditDocumentOfTopic.cshtml" />
     <Content Include="Views\Home\EditDocumentOf.cshtml" />
+    <Content Include="Views\Home\TopicView.cshtml" />
+    <Content Include="Views\Home\RefuseTheDocument.cshtml" />
+    <Content Include="Views\Home\NotificationView.cshtml" />
+    <Content Include="Views\EvaluationForms\LateForSubmission.cshtml" />
+    <Content Include="Views\Teachers\listVacation.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -550,6 +560,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202006241602348_TopicEVTOdocumnt1.resx">
       <DependentUpon>202006241602348_TopicEVTOdocumnt1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202006300132120_AddcolleFieldVaction.resx">
+      <DependentUpon>202006300132120_AddcolleFieldVaction.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Helpers;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
@@ -154,11 +155,21 @@ namespace WebApplication2.Controllers
             if (ModelState.IsValid)
             {
                 ViewBag.AccountType = new SelectList(db.Roles, "Name", "Name");
-                var user = new ApplicationUser { UserName = model.Username, Email = model.Email,AccountType=model.AccountType };
-                var result = await UserManager.CreateAsync(user, model.Password);
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email,AccountType=model.AccountType };
+                string s = PasswordRandom();
+                var result = await UserManager.CreateAsync(user,s);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    WebMail.SmtpServer = "smtp.gmail.com";
+                    WebMail.SmtpPort = 587;
+                    WebMail.SmtpUseDefaultCredentials = true;
+                    WebMail.EnableSsl = true;
+                    WebMail.UserName = "UOB.cs.com@gmail.com";
+                    WebMail.Password = "UOB.cs.com";
+                    string s2 = "تم تفعيل حساب لك على هذا الايميل في موقع لكليه لغرض تقييم سيكون  "+" UserName "+" لحسابك هوه الايميل الخاص بك والباسورد: "+s;
+                    WebMail.Send(to: model.Email, subject: "تقييم الاساتذه", body: s2, isBodyHtml: true);
+
+                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
@@ -166,13 +177,13 @@ namespace WebApplication2.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
                     await UserManager.AddToRoleAsync(user.Id, model.AccountType);
-                    return RedirectToAction("Index", "Home");
+                  //  return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }
 
             // If we got this far, something failed, redisplay form
-            return View(model);
+            return View();
         }
         public ActionResult EditProfile()
         {
@@ -255,7 +266,34 @@ namespace WebApplication2.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
-
+        public string PasswordRandom()
+        {
+            string numbers = "0123456789";
+            string BigLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            string Lowercaseletters = "abcdefghijklmnopqrstuvwxyz";
+            string Symbols = "!@#$%^&*_";
+            Random objrandom = new Random();
+            string passwordString = "";
+            string strrandom = string.Empty;
+            for (int i = 0; i < 2; i++)
+            {
+                int temp = objrandom.Next(0, Lowercaseletters.Length);
+                passwordString = Lowercaseletters.ToCharArray()[temp].ToString();
+                strrandom += passwordString;
+                temp = objrandom.Next(0, numbers.Length);
+                passwordString = numbers.ToCharArray()[temp].ToString();
+                strrandom += passwordString;
+                temp = objrandom.Next(0, BigLetters.Length);
+                passwordString = BigLetters.ToCharArray()[temp].ToString();
+                strrandom += passwordString;
+                temp = objrandom.Next(0, Symbols.Length);
+                passwordString = Symbols.ToCharArray()[temp].ToString();
+                strrandom += passwordString;
+            }
+            ViewBag.anotp = strrandom;
+            
+            return (strrandom);
+        }
         //
         // GET: /Account/ForgotPasswordConfirmation
         [AllowAnonymous]

@@ -1,9 +1,7 @@
 ﻿@model IEnumerable<p00.Models.EvaluationForm>
 
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_MainLayout.cshtml";
-}
+@{ ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_MainLayout.cshtml"; }
 
 <h2>Index</h2>
 
@@ -21,22 +19,31 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.year)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.iscurent)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
-            @Html.ActionLink("Details", "Details", new { id = item.id }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.id })|
-            @Html.ActionLink("into", "into", new { id = item.id })
-        </td>
-    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.year)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.iscurent)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.id }) |
+        @Html.ActionLink("Details", "Details", new { id = item.id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.id })|
+        @Html.ActionLink("into", "into", new { id = item.id })|
+        @Html.ActionLink("نسخ الاستماره", "CopyEvaluation", new { id = item.id })
+    </td>
+</tr>
 }
-
+    
 </table>
-
+@if (ViewBag.Message != null)
+{
+                <script type="text/javascript">
+        window.onload = function () {
+            alert("@ViewBag.Message");
+        };
+                </script>
+                }

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<p00.Models.TopicEV>
+
+@using Microsoft.AspNet.Identity
+@using WebApplication2.Models;
+
+@{
+    ViewBag.Title = "RefuseTheDocument";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h1>الفقرات المرفوضه</h1>
+@using (Html.BeginForm("RefuseTheDocument", "Home", FormMethod.Post))
+{
+    
+    if (Request.IsAuthenticated)
+    {
+        var db = new ApplicationDbContext();
+        var UserID = User.Identity.GetUserId();
+        var CurrentUser = db.Users.Where(a => a.Id == UserID).SingleOrDefault();
+        var CurrentTeacher = db.UserToTeachers.Where(a => a.UserID == UserID).SingleOrDefault();
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayName("تاريخ الاستماره")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sections.SectionName)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.Topics.TopicName)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                var document = db.Documents.Where(a => a.TopicEVId == item.Id);
+                if (item.Approved == true && item.Points == 0 && document.Count() > 0 && CurrentTeacher.TeacherID == item.TeacherId)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EvaluationForm.year)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Sections.SectionName)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Topics.TopicName)
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("عادة التقيم", "RefuseTheDocument2", new { id = item.Id })  |
+                            @Html.ActionLink("عرض تفاصيل", "EditDocumentOfTopic", new { id = item.Id }) |
+                        </td>
+                    </tr>
+                }
+            }
+
+        </table>
+    }
+}

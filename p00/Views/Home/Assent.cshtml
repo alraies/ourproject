@@ -31,11 +31,12 @@
         foreach (var item in Teacher)
         {
             // var item3 = item.TopicEVs;
-
-            if(item.Id!= CurrentTeacher.TeacherID)
+            var ta2 = db.TopicEVs.Where(a => a.TeacherId == item.Id & a.Approved == false&a.Topics.CommitHeesID==Currentcommit3.id);
+            if(item.Id!= CurrentTeacher.TeacherID&&ta2.Count()>0)
             {
 
-           
+
+
            <div class="panel panel-info">
                <div class="panel-heading"><h1>@Html.DisplayFor(modelItem => item.FullName)</h1></div>
 

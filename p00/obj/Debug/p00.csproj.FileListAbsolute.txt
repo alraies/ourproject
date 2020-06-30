@@ -564,3 +564,4 @@ C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migra
 C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.deleletPrmaryKeyinTableDucment.resources
 C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.TopicEVTOdocumnt.resources
 C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.TopicEVTOdocumnt1.resources
+C:\Users\othman shaker\Desktop\New folder (4)\ourproject\p00\obj\Debug\p00.Migrations.AddcolleFieldVaction.resources

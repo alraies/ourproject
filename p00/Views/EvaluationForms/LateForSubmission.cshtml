@@ -1,0 +1,63 @@
+﻿@model IEnumerable<p00.Models.Teacher>
+
+@{
+    ViewBag.Title = "LateForSubmission";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}
+
+<h1>الاساتذه المتاخرين عن التقديم لتقييم</h1>
+@Html.ActionLink("اضافه الكل لتقييم", "AllRequestForEvaluation", new { teachers = Model.ToList() })
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FullName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.University)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.College)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Department)
+        <th>
+            @Html.DisplayNameFor(model => model.ScientificTitle)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.University)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.College)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ScientificTitle)
+            </td>
+            <td>
+                |
+                @Html.ActionLink("اضافه لتقييم", "RequestForEvaluation", new { id = item.Id }) |
+
+            </td>
+        </tr>
+    }
+
+</table>
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+        window.onload = function () {
+            alert("@ViewBag.Message");
+        };
+    </script>
+}

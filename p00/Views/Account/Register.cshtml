@@ -11,17 +11,21 @@
     <h4 class="desc">إضافة منتسب جديد</h4>
     <hr />
     @Html.ValidationSummary("", new { @class = "text-danger" })
-
-    <div class="form-group">
+     @*@Html.HiddenFor(model => model.Username)
+     @Html.HiddenFor(model => model.Password)
+     @Html.HiddenFor(model => model.ConfirmPassword)*@
+    @*<div class="form-group">
         @Html.LabelFor(m => m.Username, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.TextBoxFor(m => m.Username, new { @class = "form-control" })
         </div>
-    </div>
+    </div>*@
     <div class="form-group">
         @Html.LabelFor(m => m.AccountType, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
-            @Html.DropDownList("AccountType",null, new { @class = "form-control" })
+            @Html.DropDownList("AccountType", null, new { @class = "form-control" })
+            @*@Html.DropDownList("AccountType",(IEnumerable<SelectListItem>)ViewBag.countrydrop, "Select AccountType", new { @class = "form-control" })*@
+           
         </div>
     </div>
 
@@ -31,7 +35,7 @@
             @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
         </div>
     </div>
-    <div class="form-group">
+    @*<div class="form-group">
         @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
         <div class="col-md-10">
             @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
@@ -42,7 +46,7 @@
         <div class="col-md-10">
             @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
         </div>
-    </div>
+    </div>*@
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-default" value="إضافة" />

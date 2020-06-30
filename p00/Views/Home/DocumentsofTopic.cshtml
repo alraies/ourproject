@@ -47,11 +47,22 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.Topics.TopicName)
                     </td>
-
+                     @if(item.Topics.ReqDoc==true)
+                        {
                     <td>
+                       
                         @Html.ActionLink("عرض الوثائق", "EditDocumentOfTopic", new { id = item.Id }) |
                         @Html.ActionLink("اضافة وثيقه", "Create", new { id = item.Id }) |
+                        
+                        
                     </td>
+                     }
+                     else
+                     {
+                         <td>
+                             <h5>لاتحتاج وثيقه</h5>
+                         </td>
+                     }
                 </tr>
                 }
             }

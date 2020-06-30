@@ -1,0 +1,86 @@
+﻿@model IEnumerable<p00.Models.Notification>
+@using Microsoft.AspNet.Identity
+@using p00.Models;
+@using WebApplication2.Models;
+@{
+    ViewBag.Title = "NotificationView";
+    Layout = "~/Views/Shared/_MainLayout.cshtml";
+}@if (Request.IsAuthenticated)
+{
+    var db = new ApplicationDbContext();
+    var t = db.Teachers.ToList();
+    var c = db.CommHeeMembers.ToList();
+    var c2 = db.CommHees.ToList();
+    var c3 = db.CommitHees.ToList();
+    <h2>الاشعارات</h2>
+    <a href="NotificationView2"> <input type="submit" value="تم قراءة الكل" class="btn btn-default" /></a>
+   
+    <table class="table" width="1000" border="1">
+        <tr>
+            <th>
+                
+            </th>
+        </tr>
+
+        @foreach (var itme in Model)
+        {
+
+
+
+            var tea = c.Where(a => a.Teacherid == itme.AccountontID).SingleOrDefault();
+            var tc = c2.Where(a => a.id == tea.CommHeeid).SingleOrDefault();
+            var tr = c3.Where(a => a.id == tc.CommitHeesid).SingleOrDefault();
+            if (itme.issee == false)
+            {
+                <tr id="row"><td><label id="Notification"><p> موضوع @itme.Messagee من @tr.comitname</p> الوقت @itme.AddedOn</label></td></tr>
+            }
+            else
+            {
+                <tr id="row2"> <td><label id="Notification2" ><p> موضوع @itme.Messagee من @tr.comitname</p> الوقت @itme.AddedOn</label></td></tr>
+            }
+
+        }
+    </table>
+}
+@*<table class="table">
+        <tr>
+
+            <th>
+                @Html.DisplayNameFor(model => model.AccountontID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Messagee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AddedOn)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.issee)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.AccountontID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Messagee)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AddedOn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.issee)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.id }) |
+                @Html.ActionLink("Details", "Details", new { id=item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.id })
+            </td>
+        </tr>
+    }
+
+    </table>*@

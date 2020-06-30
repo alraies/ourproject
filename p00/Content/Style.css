@@ -104,4 +104,20 @@ body {
         width: 100%;
     }
 
-
+#Notification {
+    width: 200px;
+   
+}
+#Notification2 {
+    width: 200px;
+   
+}
+#row{
+    background-color: #95C6D4;
+}
+#row2 {
+    background-color: #DBECF0;
+}
+.btn {
+    border-radius: 15px
+}
